@@ -1974,10 +1974,11 @@ nav.tab-nav .nav-tabs {
 .mobilemenu {
     display: none;
     background: #fff;
-    padding: 0;
+    padding: 30px;
     margin-top: 20px;
     border-radius: 0;
-    max-width: 80%;
+    max-width: 80vw;
+    width: 80vw;
 }
 
 .mobilemenu.active {
