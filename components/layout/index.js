@@ -3,6 +3,7 @@ import Head from "next/head"
 import { Header } from "@components/organisms/header"
 import { logo } from "@public/static/image"
 import Search from "@components/template/search"
+import { Sidebar } from "@components/template/sidebar"
 
 const Layout = ({ children }) => {
     const addClass = () => {
@@ -29,8 +30,10 @@ const Layout = ({ children }) => {
 
                 <link rel="icon" href={logo} />
             </Head>
-            <Header openSearch={openSearch} />
+            <Header openSearch={openSearch} addClass={addClass} />
+
             <Search />
+            <Sidebar removeClass={removeClass} />
             {children}
         </>
     )
