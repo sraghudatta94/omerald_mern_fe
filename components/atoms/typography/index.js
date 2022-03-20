@@ -20,7 +20,7 @@ export const HomeBannerText = () => {
                 Welcome to <span className="text-blue-600">Omerald</span>
             </p>
             <p className="my-3 text-gray-400">
-                Don't miss out on the best articles from exports on <br /> health,fitness, & diseases etc...
+                Dont miss out on the best articles from exports on <br /> health,fitness, diseases etc...
             </p>
         </div>
     )
