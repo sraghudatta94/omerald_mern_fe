@@ -8,7 +8,7 @@ export const SidebarMenu = () => {
         <ul>
             {articlesList.map((article) => {
                 return (
-                    <li className="cat-item cat-item-2">
+                    <li className="cat-item cat-item-2" key={article.id}>
                         <Links route="/" value={article.title} />
                         <span className="post-count mx-2">3</span>
                     </li>
@@ -22,7 +22,11 @@ export const SidebarPost = () => {
     return (
         <ul className="list-post">
             {articlesList.map((article) => {
-                return <PostCard key={article.id} article={article} />
+                return (
+                    <li className="my-10" key={article.id}>
+                        <PostCard article={article} />
+                    </li>
+                )
             })}
         </ul>
     )
