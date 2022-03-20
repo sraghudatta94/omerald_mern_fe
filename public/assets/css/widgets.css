@@ -457,10 +457,7 @@ span.has-dot::before {
     bottom: 3px;
     border-radius: 50%;
 }
-.post-module-1
-    .post-content-overlay
-    .entry-meta.text-white
-    span.post-cat::after {
+.post-module-1 .post-content-overlay .entry-meta.text-white span.post-cat::after {
     background: #fff;
 }
 .slick-dots {
@@ -514,12 +511,9 @@ span.has-dot::before {
 .img-hover-slide:hover .top-left-icon,
 .img-hover-slide:hover .top-right-icon {
     margin-top: -3px;
-    -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18),
-        0 4px 15px 0 rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18),
-        0 4px 15px 0 rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.18),
-        0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.18), 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
     -webkit-transition: all 0.4s ease;
@@ -594,28 +588,10 @@ span.has-dot::before {
     height: 100%;
     left: 0;
     top: 0;
-    background: -webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(50%, transparent),
-        to(rgba(0, 0, 0, 0.8))
-    );
-    background: -webkit-linear-gradient(
-        top,
-        transparent 50%,
-        rgba(0, 0, 0, 0.8) 100%
-    );
-    background: -o-linear-gradient(
-        top,
-        transparent 50%,
-        rgba(0, 0, 0, 0.8) 100%
-    );
-    background: linear-gradient(
-        to bottom,
-        transparent 50%,
-        rgba(0, 0, 0, 0.8) 100%
-    );
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), to(rgba(0, 0, 0, 0.8)));
+    background: -webkit-linear-gradient(top, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
+    background: -o-linear-gradient(top, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
     -webkit-transition: all 0.4s ease;
@@ -1996,17 +1972,15 @@ nav.tab-nav .nav-tabs {
 }
 
 .mobilemenu {
-	display: none;
-	width: 100%;
-	background: #fff;
-	width: 100%;
-	padding: 30px;
-	margin-top: 20px;
-	border-radius: 0;
-	max-width: 80%;
+    display: none;
+    background: #fff;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 0;
+    max-width: 80vw;
+    width: 80vw;
 }
 
 .mobilemenu.active {
     display: block;
 }
-

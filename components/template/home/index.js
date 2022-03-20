@@ -1,6 +1,7 @@
 import Layout from "@components/layout"
 import Head from "next/head"
 import React from "react"
+import { HomeBanner } from "@components/organisms/banner"
 
 export const HomeTemplate = () => {
     return (
@@ -9,7 +10,9 @@ export const HomeTemplate = () => {
                 <title>Omerald | Home</title>
             </Head>
             <Layout>
-                <main></main>
+                <main>
+                    <HomeBanner />
+                </main>
             </Layout>
         </>
     )

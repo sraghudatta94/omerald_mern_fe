@@ -1,7 +1,8 @@
 import { LeftHeader, RightHeader } from "@components/molecules/header"
 import React from "react"
+import Menu from "@components/organisms/menu"
 
-export const Header = ({ openSearch }) => {
+export const Header = ({ openSearch,addClass }) => {
     return (
         <header>
             <div className="header-top">
@@ -12,6 +13,7 @@ export const Header = ({ openSearch }) => {
                     </div>
                 </div>
             </div>
+            <Menu addClass={addClass} />
         </header>
     )
 }
