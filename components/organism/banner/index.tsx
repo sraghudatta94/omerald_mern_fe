@@ -11,8 +11,8 @@ export const HomeBanner = () => {
             <h2>Hello,</h2>
             <h3 className="mb-20"> Welcome to my Omerald</h3>
             <h5 className="text-muted">
-              Don't miss out on the latest articles about Health, Fitness
-              diseases, etc...
+              Dont miss out on the latest articles about Health, Fitness
+              diseases, etc.
             </h5>
             <form className="input-group form-subcriber mt-30 d-flex">
               <input

@@ -4,7 +4,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useLayoutEffect, useState } from 'react';
 
-const Menu: React.FC = ({ addClass }: any) => {
+const Menu: React.FC<any> = ({ addClass }: any) => {
   const [scroll, setScroll] = useState(false);
 
   const [size, setSize] = useState(0);

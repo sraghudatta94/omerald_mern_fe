@@ -15,7 +15,7 @@ export const FeaturedPost: React.FC = () => {
               <PostCarousel />
             </section>
             {articleList.map(article => {
-              return <ArticleCard {...article} />;
+              return <ArticleCard key={article.id} {...article} />;
             })}
           </section>
         </div>
