@@ -1,8 +1,12 @@
-import { HomeTemplate } from '@components/templates/home';
+import { HomeTemplate } from '@components/template/home';
 import React from 'react';
 
 const Home: React.FC = () => {
-  return <HomeTemplate />;
+  return (
+    <>
+      <HomeTemplate />
+    </>
+  );
 };
 
 export default Home;

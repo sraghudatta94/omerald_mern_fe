@@ -16,8 +16,18 @@ export const navLinks: LinkType[] = [
     route: '/article',
   },
   {
-    id: 1,
+    id: 3,
     title: 'Register',
     route: '/register',
+  },
+  {
+    id: 4,
+    title: 'Authors',
+    route: '/authors',
+  },
+  {
+    id: 5,
+    title: 'Topics',
+    route: '/topics',
   },
 ];

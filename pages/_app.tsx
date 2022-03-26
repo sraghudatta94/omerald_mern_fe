@@ -12,6 +12,7 @@ import '../public/assets/css/style.css';
 import '../public/assets/css/widgets.css';
 import '../public/assets/css/responsive.css';
 import 'metismenujs/dist/metismenujs.css';
+import 'styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
   const router = useRouter();
