@@ -6,7 +6,7 @@ import { ArticleType } from '@public/static/types/topics';
 export const PostImage: React.FC<ArticleType> = ({ image, url }) => {
   return (
     <div className="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
-      <Links href={url}>
+      <Links href="/">
         <a className="color-white">
           <Image
             width="100"

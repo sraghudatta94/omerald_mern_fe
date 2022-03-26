@@ -8,11 +8,10 @@ export const ArticleCard: React.FC<ArticleType> = ({
   title,
   url,
   postingDate,
-  id,
 }) => {
   return (
-    <article className="col-lg-4 col-md-6 mb-30 wow fadeInUp animated">
-      <div className="post-card-1 border-radius-10 w-[20vw] hover-up">
+    <article className=" wow fadeInUp animated">
+      <div className="post-card-1 border-radius-10 w-[90vw] sm:w-[42vw] md:w-[25vw] lg:w-[20vw] hover-up">
         <div
           className="post-thumb thumb-overlay img-hover-slide position-relative"
           style={{
@@ -35,11 +34,11 @@ export const ArticleCard: React.FC<ArticleType> = ({
         </div>
         <div className="post-content p-30">
           <div className="entry-meta meta-0 font-small mb-10">
-            <Links href={''}>Heart</Links>
+            <Links href="/">Heart</Links>
           </div>
           <div className="d-flex post-card-content">
             <h5 className="post-title mb-20 font-weight-900">
-              <Links href={url}>
+              <Links href="/">
                 <a className="text-xl">{title}</a>
               </Links>
             </h5>
