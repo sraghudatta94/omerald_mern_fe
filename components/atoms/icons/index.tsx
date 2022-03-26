@@ -19,3 +19,11 @@ export const SocialIcons = ({ children, bg, href, ...props }: Props) => {
     </NextLink>
   );
 };
+
+export const StarIcon: React.FC = ({}) => {
+  return (
+    <span className="top-left-icon bg-warning">
+      <i className="elegant-icon icon_star_alt"></i>
+    </span>
+  );
+};

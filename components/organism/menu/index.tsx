@@ -1,14 +1,13 @@
-import { MenuLinks } from '@components/molecules/menu';
-import { SocialLinks } from '@components/molecules/social';
+import { MenuLinks } from '@components/molecule/menu';
+import { SocialLinks } from '@components/molecule/social';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useLayoutEffect, useState } from 'react';
 
-const Menu = ({ addClass }: any) => {
+const Menu: React.FC = ({ addClass }: any) => {
   const [scroll, setScroll] = useState(false);
- 
-  const [size, setSize] = useState(0);
 
+  const [size, setSize] = useState(0);
 
   useEffect(() => {
     document.addEventListener('scroll', () => {
@@ -30,12 +29,12 @@ const Menu = ({ addClass }: any) => {
     <>
       <div className={scroll ? 'header-sticky sticky-bar' : 'header-sticky'}>
         <div className="container  align-self-center position-relative">
-          <div className="main-nav float-left ">
+          <div className="main-nav float-left w-[20px] md:w-[60vw]">
             <MenuLinks />
           </div>
           <div className="float-right header-tools text-muted font-small">
             <SocialLinks />
-            <a href="#/" className=" text-red-600" onClick={addClass}>
+            <a className=" text-red-600" onClick={addClass}>
               <FontAwesomeIcon icon={faBars} />
             </a>
           </div>

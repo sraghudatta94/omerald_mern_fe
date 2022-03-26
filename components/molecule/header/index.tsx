@@ -7,7 +7,7 @@ type HeaderProp = {
   openSearch: Function;
 };
 
-export const RighHeader: React.FC<HeaderProp> = ({ openSearch }: any) => {
+export const RightHeader: React.FC<HeaderProp> = ({ openSearch }: any) => {
   return (
     <div className="col-md-9 col-xs-6 text-right header-top-right">
       <Button className="search-icon d-none d-md-inline" onClick={openSearch}>
