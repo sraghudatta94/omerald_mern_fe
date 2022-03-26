@@ -1,6 +1,4 @@
-import { Links } from '@components/atoms/link';
 import { articleList } from '@public/static/data/topics';
-import Link from 'next/link';
 import React from 'react';
 import { PostContent } from './postContent';
 import { PostImage } from './postImage';

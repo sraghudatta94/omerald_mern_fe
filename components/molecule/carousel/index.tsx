@@ -5,20 +5,21 @@ import { StarIcon } from '@components/atoms/icons';
 
 export const CarouselImage: React.FC<ArticleType> = ({
   image,
+  id,
   url,
   title,
   author,
   description,
 }: ArticleType) => {
   return (
-    <div className="position-relative post-thumb">
+    <div key={id} className="position-relative post-thumb">
       <div
         className="thumb-overlay img-hover-slide position-relative"
         style={{
           backgroundImage: `url(${image})`,
         }}
       >
-        <Link href={url}>
+        <Link href="/">
           <a className="img-link"></a>
         </Link>
         <StarIcon />

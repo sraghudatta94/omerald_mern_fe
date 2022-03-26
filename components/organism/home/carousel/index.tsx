@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import Slider from 'react-slick';
 import { CarouselImage } from '@components/molecule/carousel';
 import { articleList } from '@public/static/data/topics';
@@ -18,11 +17,7 @@ export const PostCarousel: React.FC = () => {
         <div className="arrow-cover"></div>
         <Slider {...settings} className="slide-fade">
           {articleList.map(article => {
-            return (
-              <>
-                <CarouselImage {...article} />
-              </>
-            );
+            return <CarouselImage key={article.id} {...article} />;
           })}
         </Slider>
       </div>
