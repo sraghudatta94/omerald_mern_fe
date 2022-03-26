@@ -11,7 +11,7 @@ export const ArticleCard: React.FC<ArticleType> = ({
   id,
 }) => {
   return (
-    <article key={id} className="col-lg-4 col-md-6 mb-30 wow fadeInUp animated">
+    <article className="col-lg-4 col-md-6 mb-30 wow fadeInUp animated">
       <div className="post-card-1 border-radius-10 w-[20vw] hover-up">
         <div
           className="post-thumb thumb-overlay img-hover-slide position-relative"

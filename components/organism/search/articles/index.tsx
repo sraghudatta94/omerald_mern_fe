@@ -8,7 +8,7 @@ export const Article: React.FC = () => {
     <div className="row mt-80">
       {articleList.slice(0, 3).map(article => {
         return (
-          <div className="col-lg-4 col-md-6">
+          <div className="col-lg-4 col-md-6" key={article.id}>
             <div className="d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-5 mb-30">
               <div className="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
                 <Image src={article.image} width="80" height="80" alt="" />

@@ -12,7 +12,7 @@ export const Trending: React.FC = () => {
         <ul className="list-inline d-inline-block">
           {topicsList.map(topic => {
             return (
-              <li className="list-inline-item">
+              <li key={topic.id} className="list-inline-item">
                 <Links href={topic.route}>
                   <a>{topic.name}</a>
                 </Links>

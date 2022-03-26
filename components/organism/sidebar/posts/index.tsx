@@ -9,7 +9,7 @@ export const Posts = () => {
   return (
     <div className="sidebar-widget widget-latest-posts mb-50">
       <div className="widget-header-2 position-relative mb-30">
-        <h5 className="mt-5 mb-30">Don't miss</h5>
+        <h5 className="mt-5 mb-30">Dont miss</h5>
       </div>
       <div className="post-block-list post-module-1 post-module-5">
         <ul className="list-post">
