@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArticleType } from '@public/static/types/topics';
 import { StarIcon } from '@components/atoms/icons';
+import { articleImagePath } from '@public/static/api';
 
 export const CarouselImage: React.FC<ArticleType> = ({
   image,
@@ -15,7 +16,7 @@ export const CarouselImage: React.FC<ArticleType> = ({
       <div
         className="thumb-overlay img-hover-slide position-relative"
         style={{
-          backgroundImage: `url("http://omerald.com/public/uploads/articleimages/${image}")`,
+          backgroundImage: `url("${articleImagePath + image}")`,
         }}
       >
         <Link href="/">

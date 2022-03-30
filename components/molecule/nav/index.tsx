@@ -15,7 +15,7 @@ export const NavMenu: React.FC<Props> = ({ isToggled }: Props) => {
 
   return (
     <>
-      <div className={isToggled ? 'mobilemenu active p-0' : 'mobilemenu hide'}>
+      <div className={isToggled ? 'mobilemenu active p-4 ' : 'mobilemenu hide'}>
         <PerfectScrollbar>
           <ul className="metismenu text-muted" id="metismenu">
             {navLinks.map(nav => {
