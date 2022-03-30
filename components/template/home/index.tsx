@@ -5,6 +5,7 @@ import { ArticleType } from '@public/static/types/topics';
 import Head from 'next/head';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Trending } from '@components/organism/home/trending';
 
 export const HomeTemplate: React.FC = () => {
   let redux = useSelector((state: any) => state);
@@ -18,6 +19,7 @@ export const HomeTemplate: React.FC = () => {
       <main>
         <HomeBanner />
         <FeaturedPost articles={article} />
+        <Trending />
       </main>
     </Layout>
   );

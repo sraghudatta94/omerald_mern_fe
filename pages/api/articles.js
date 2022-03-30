@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export default async function handler(req, res) {
   try {
     const article = await prisma.articles.findMany({
-      take: 10,
+      take: 40,
       select: {
         id: true,
         title: true,

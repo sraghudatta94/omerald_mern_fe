@@ -10,7 +10,6 @@ export const CarouselImage: React.FC<ArticleType> = ({
   short_description,
   author,
 }: ArticleType) => {
-  console.log(short_description);
   return (
     <div key={id} className="position-relative post-thumb">
       <div

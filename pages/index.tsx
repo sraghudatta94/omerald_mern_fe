@@ -38,7 +38,7 @@ const Home: React.FC<any> = ({ articles, authors, topics }) => {
     articleActionCreator.addArticle(dispatch, articleList);
     authorActionCreator.setAuthor(dispatch, authorList);
     topicActionCreator.setTopics(dispatch, topicsList);
-  }, [articleList, dispatch]);
+  });
 
   return (
     <>

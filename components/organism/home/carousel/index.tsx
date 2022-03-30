@@ -15,14 +15,14 @@ export const PostCarousel: React.FC<Props> = ({ articles }: Props) => {
     slidesToScroll: 1,
   };
 
-  let articlesList: ArticleType[] = articles ? articles.slice(4, 8) : [];
+  let articlesList: ArticleType[] = articles ? articles.slice(36, 40) : [];
 
   return (
     <div>
       <div className="carausel-post-1 hover-up border-radius-10 overflow-hidden transition-normal position-relative wow fadeInUp animated">
         <div className="arrow-cover"></div>
         <Slider {...settings} className="slide-fade">
-          {articlesList.slice(0, 5).map(article => {
+          {articlesList.map(article => {
             return <CarouselImage key={article.id} {...article} />;
           })}
         </Slider>

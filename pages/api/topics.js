@@ -8,6 +8,9 @@ export default async function handler(req, res) {
       select: {
         id: true,
         title: true,
+        image: true,
+        body: true,
+        created_at: true,
       },
     });
 

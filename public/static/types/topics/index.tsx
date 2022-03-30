@@ -17,4 +17,6 @@ export type AuthorType = {
 export type TopicType = {
   id: number;
   title: string;
+  image: string;
+  created_at: string;
 };
