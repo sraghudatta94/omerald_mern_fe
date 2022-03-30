@@ -15,7 +15,7 @@ export const PostCarousel: React.FC<Props> = ({ articles }: Props) => {
     slidesToScroll: 1,
   };
 
-  let articlesList: ArticleType[] = articles ? articles.slice(36, 40) : [];
+  let articlesList: ArticleType[] = articles ? articles.slice(37, 40) : [];
 
   return (
     <div>

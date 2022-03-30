@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Links } from '@components/atoms/link';
 import { ArticleType } from '@public/static/types/topics';
-import { imagePath } from '@public/static/api';
+import { articleImagePath } from '@public/static/api';
 
 export const PostImage: React.FC<ArticleType> = ({ image }) => {
   return (
@@ -13,7 +13,7 @@ export const PostImage: React.FC<ArticleType> = ({ image }) => {
             width="100"
             height="60"
             className="rounded border-2"
-            src={imagePath + image}
+            src={articleImagePath + image}
             alt="postImage"
           />
         </a>

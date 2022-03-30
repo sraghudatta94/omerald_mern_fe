@@ -1,3 +1,4 @@
+import Footer from '@components/organism/footer';
 import { Header } from '@components/organism/header';
 import { Search } from '@components/organism/search';
 import { Sidebar } from '@components/organism/sidebar';
@@ -18,6 +19,7 @@ export const Layout: React.FC = ({ children }) => {
       <Header openSearch={openSearch} addClass={addClass} />
       <Search />
       {children}
+      <Footer />
     </>
   );
 };

@@ -1,7 +1,7 @@
 export type ArticleType = {
   id: number;
   title: string;
-  short_description: string;
+  short_description?: string;
   updated_by: string;
   image: string;
   created_at: Date;
@@ -19,4 +19,5 @@ export type TopicType = {
   title: string;
   image: string;
   created_at: string;
+  body?: string;
 };

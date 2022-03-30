@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArticleType } from '@public/static/types/topics';
 import { useSelector } from 'react-redux';
-import { imagePath } from '@public/static/api';
+import { articleImagePath } from '@public/static/api';
 
 export const Article: React.FC = () => {
   let redux = useSelector((state: any) => state);
@@ -18,7 +18,7 @@ export const Article: React.FC = () => {
             <div className="d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-5 mb-30">
               <div className="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
                 <Image
-                  src={imagePath + article.image}
+                  src={articleImagePath + article.image}
                   width="80"
                   height="80"
                   alt=""
