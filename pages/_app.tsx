@@ -4,6 +4,7 @@ React.useLayoutEffect = React.useEffect;
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
+import { store } from '../redux/store';
 
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import 'slick-carousel/slick/slick.css';
@@ -13,6 +14,7 @@ import '../public/assets/css/widgets.css';
 import '../public/assets/css/responsive.css';
 import 'metismenujs/dist/metismenujs.css';
 import 'styles/globals.css';
+import { Provider } from 'react-redux';
 
 function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
   const router = useRouter();
@@ -34,7 +36,11 @@ function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
     }
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  );
 }
 
 export default MyApp;

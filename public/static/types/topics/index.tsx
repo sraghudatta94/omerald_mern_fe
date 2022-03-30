@@ -1,16 +1,22 @@
 export type ArticleType = {
   id: number;
   title: string;
-  description: string;
-  author: string;
-  postingDate: string;
+  short_description: string;
+  updated_by: string;
   image: string;
-  url: string;
+  created_at: Date;
+  author: string;
+  topic: string[];
 };
 
-export type TopicList = {
+export type AuthorType = {
   id: number;
   name: string;
-  viewCount: number;
-  route: string;
+};
+
+export type TopicType = {
+  id: number;
+  title: string;
+  image: string;
+  created_at: string;
 };

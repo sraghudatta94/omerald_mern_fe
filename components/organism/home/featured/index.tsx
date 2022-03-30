@@ -1,10 +1,16 @@
 import { ArticleCard } from '@components/molecule/card';
-import { articleList } from '@public/static/data/topics';
+import { ArticleType } from '@public/static/types/topics';
 import React from 'react';
 import { PostCarousel } from '../carousel';
 import { Tags } from '../tags';
 
-export const FeaturedPost: React.FC = () => {
+type Props = {
+  articles?: ArticleType[];
+};
+
+export const FeaturedPost: React.FC<Props> = ({ articles }: any) => {
+  let articlesList: ArticleType[] = articles ? articles : [];
+
   return (
     <div className="container w-[90vw] max-w-[90vw] lg:w-[65vw] ">
       <Tags />
@@ -12,9 +18,9 @@ export const FeaturedPost: React.FC = () => {
         <div className="row">
           <section className="h-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-rows-2 gap-10">
             <section className="h-[40vh] md:col-span-2">
-              <PostCarousel />
+              <PostCarousel articles={articles} />
             </section>
-            {articleList.map(article => {
+            {articlesList.slice(34, 38).map((article: ArticleType) => {
               return <ArticleCard key={article.id} {...article} />;
             })}
           </section>
