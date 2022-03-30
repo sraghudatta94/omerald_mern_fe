@@ -1,8 +1,13 @@
 import { Links } from '@components/atoms/link';
-import { topicsList } from '@public/static/data/topics';
+import { TopicType } from '@public/static/types/topics';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 export const Trending: React.FC = () => {
+  let redux = useSelector((state: any) => state);
+  let topics: Array<TopicType> = redux.topics.data;
+  let topicsList: TopicType[] = topics ? topics.slice(0, 4) : [];
+
   return (
     <div className="row mt-80 text-center">
       <div className="col-12 font-small suggested-area">
@@ -13,8 +18,8 @@ export const Trending: React.FC = () => {
           {topicsList.map(topic => {
             return (
               <li key={topic.id} className="list-inline-item">
-                <Links href={topic.route}>
-                  <a>{topic.name}</a>
+                <Links href={'/'}>
+                  <a>{topic.title}</a>
                 </Links>
               </li>
             );

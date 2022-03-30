@@ -6,8 +6,8 @@ import { ArticleType } from '@public/static/types/topics';
 export const ArticleCard: React.FC<ArticleType> = ({
   image,
   title,
-  url,
-  postingDate,
+  topic,
+  created_at,
 }) => {
   return (
     <article className=" wow fadeInUp animated">
@@ -15,7 +15,7 @@ export const ArticleCard: React.FC<ArticleType> = ({
         <div
           className="post-thumb thumb-overlay img-hover-slide position-relative"
           style={{
-            backgroundImage: `url(${image})`,
+            backgroundImage: `url("http://omerald.com/public/uploads/articleimages/${image}")`,
           }}
         >
           <Link href="/single">
@@ -33,8 +33,8 @@ export const ArticleCard: React.FC<ArticleType> = ({
           </ul>
         </div>
         <div className="post-content p-30">
-          <div className="entry-meta meta-0 font-small mb-10">
-            <Links href="/">Heart</Links>
+          <div className="entry-meta meta-0 font-lg text-green-700 font-semibold mb-10">
+            <Links href="/">{topic ? topic[0] : 'Health'}</Links>
           </div>
           <div className="d-flex post-card-content">
             <h5 className="post-title mb-20 font-weight-900">
@@ -42,10 +42,12 @@ export const ArticleCard: React.FC<ArticleType> = ({
                 <a className="text-xl">{title}</a>
               </Links>
             </h5>
-            <div className="entry-meta meta-1 float-left font-x-small text-uppercase">
-              <span className="post-on">{postingDate}</span>
-              <span className="time-reading has-dot">8 mins read</span>
-              <span className="post-by has-dot">12k views</span>
+            <div className="entry-meta meta-1 float-left text-uppercase">
+              <span className="post-on text-xs">
+                {created_at.toString().substring(0, 10)}
+              </span>
+              <span className="time-reading has-dot text-xs">8 mins read</span>
+              <span className="post-by has-dot text-xs">12k views</span>
             </div>
           </div>
         </div>

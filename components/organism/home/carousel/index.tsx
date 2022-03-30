@@ -1,9 +1,12 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { CarouselImage } from '@components/molecule/carousel';
-import { articleList } from '@public/static/data/topics';
+import { ArticleType } from '@public/static/types/topics';
 
-export const PostCarousel: React.FC = () => {
+type Props = {
+  articles?: ArticleType[];
+};
+export const PostCarousel: React.FC<Props> = ({ articles }: Props) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -11,12 +14,15 @@ export const PostCarousel: React.FC = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
+  let articlesList: ArticleType[] = articles ? articles.slice(4, 8) : [];
+
   return (
     <div>
       <div className="carausel-post-1 hover-up border-radius-10 overflow-hidden transition-normal position-relative wow fadeInUp animated">
         <div className="arrow-cover"></div>
         <Slider {...settings} className="slide-fade">
-          {articleList.map(article => {
+          {articlesList.slice(0, 5).map(article => {
             return <CarouselImage key={article.id} {...article} />;
           })}
         </Slider>

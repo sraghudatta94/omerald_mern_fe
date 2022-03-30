@@ -2,7 +2,7 @@ import { Links } from '@components/atoms/link';
 import { ArticleType } from '@public/static/types/topics';
 import React from 'react';
 
-export const PostContent: React.FC<ArticleType> = ({ url, title }) => {
+export const PostContent: React.FC<ArticleType> = ({ title }) => {
   return (
     <div className="post-content media-body">
       <h6 className="post-title mb-15 text-limit-2-row font-medium">

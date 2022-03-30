@@ -9,7 +9,7 @@ export const HomeBanner = () => {
         <div className="row">
           <div className="col-lg-6 align-self-center">
             <h2>Hello,</h2>
-            <h3 className="mb-20"> Welcome to my Omerald</h3>
+            <h2 className="mb-20 font-sm"> Welcome to Omerald</h2>
             <h5 className="text-muted">
               Dont miss out on the latest articles about Health, Fitness
               diseases, etc.
