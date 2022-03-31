@@ -1,12 +1,12 @@
-import { SocialIcons } from '@components/atoms/icons';
 import { SocialLinks } from '@components/molecule/social';
+import { getTopics } from '@public/static/api';
 import { TopicType } from '@public/static/types/topics';
+import { useSelector } from 'react-redux';
 import Link from 'next/link';
 import React from 'react';
-import { useSelector } from 'react-redux';
-const Footer = () => {
-  let redux = useSelector((state: any) => state);
-  let topicsList = redux.topics.data ? redux.topics.data : [];
+
+const Footer = ({ topic }) => {
+  let topicsList = topic ? topic : [];
 
   return (
     <>
@@ -146,3 +146,13 @@ const Footer = () => {
 };
 
 export default Footer;
+
+export async function getServerSideProps() {
+  const topic = await fetch(getTopics);
+
+  return {
+    props: {
+      topic,
+    },
+  };
+}

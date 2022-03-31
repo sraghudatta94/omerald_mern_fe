@@ -15,6 +15,7 @@ import '../public/assets/css/responsive.css';
 import 'metismenujs/dist/metismenujs.css';
 import 'styles/globals.css';
 import { Provider } from 'react-redux';
+import { articles, authors, topics } from 'prisma/db/getData';
 
 function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
   const router = useRouter();
