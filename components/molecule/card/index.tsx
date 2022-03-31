@@ -51,7 +51,7 @@ export const ArticleCard: React.FC<ArticleType> = ({
             </Link>
           </div>
           <div className="d-flex post-card-content">
-            <h5 className="post-title mb-20 font-weight-900">
+            <h5 className="post-title mb-20 text-2xl font-weight-900">
               <Link href="/single">
                 <a>{title}</a>
               </Link>

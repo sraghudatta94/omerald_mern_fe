@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { Trending } from '@components/organism/home/trending';
 import Head from 'next/head';
 import React from 'react';
+import { Categories } from '@components/organism/home/categories';
 
 export const HomeTemplate: React.FC = () => {
   let redux = useSelector((state: any) => state);
@@ -20,6 +21,7 @@ export const HomeTemplate: React.FC = () => {
         <HomeBanner />
         <FeaturedPost articles={article} />
         <Trending />
+        <Categories />
       </main>
     </Layout>
   );
