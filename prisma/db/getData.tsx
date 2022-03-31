@@ -13,6 +13,7 @@ export async function articles() {
         created_at: true,
         updated_by: true,
         short_description: true,
+        health_topics:true
       },
     });
 
