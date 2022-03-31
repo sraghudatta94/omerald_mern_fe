@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { SocialLinks } from '../social';
-import { Links } from '@components/atoms/link';
 import { ArticleType, TopicType } from '@public/static/types/topics';
 import { articleImagePath, topicImagePath } from '@public/static/api';
 import Image from 'next/image';
