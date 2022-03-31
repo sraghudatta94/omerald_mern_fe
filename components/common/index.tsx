@@ -5,7 +5,7 @@ import { Search } from '@components/organism/search';
 import { Sidebar } from '@components/organism/sidebar';
 import React from 'react';
 
-export const Layout: React.FC = ({ children }) => {
+export const Layout: React.FC<any> = ({ children,topic }) => {
   const openSearch = () => {
     document.body.classList.toggle('open-search-form');
   };
@@ -21,7 +21,7 @@ export const Layout: React.FC = ({ children }) => {
       <Search />
       {children}
       <Categories />
-      <Footer />
+      <Footer topic={topic} />
     </>
   );
 };
