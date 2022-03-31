@@ -6,7 +6,7 @@ export type ArticleType = {
   image: string;
   created_at: Date;
   author: string;
-  topic: string[];
+  health_topics: string[];
 };
 
 export type AuthorType = {

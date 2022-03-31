@@ -1,21 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { ArticleType, TopicType } from '@public/static/types/topics';
+import { articleImagePath, topicImagePath } from '@public/static/api';
 import {
-  ArticleCard,
-  AuthorCard,
   LatestCard,
   PopularCard,
   TrendingCard,
 } from '@components/molecule/card';
-import { useSelector } from 'react-redux';
-import { ArticleType, TopicType } from '@public/static/types/topics';
-import Link from 'next/link';
-import { articleImagePath, topicImagePath } from '@public/static/api';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const Trending: React.FC = () => {
   let redux = useSelector((state: any) => state);
-  let article: Array<ArticleType> = redux.article.data;
-  let articlesList: ArticleType[] = article ? article : [];
+  let articlesList: ArticleType[] = redux.article.data
+    ? redux.article.data
+    : [];
   let topicList: TopicType[] = redux.topics.data ? redux.topics.data : [];
 
   return (

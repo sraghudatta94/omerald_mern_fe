@@ -15,11 +15,7 @@ export const navLinks: LinkType[] = [
     title: 'Article',
     route: '/article',
   },
-  {
-    id: 3,
-    title: 'Register',
-    route: '/register',
-  },
+
   {
     id: 4,
     title: 'Authors',
@@ -29,5 +25,10 @@ export const navLinks: LinkType[] = [
     id: 5,
     title: 'Topics',
     route: '/topics',
+  },
+  {
+    id: 3,
+    title: 'Register',
+    route: '/register',
   },
 ];

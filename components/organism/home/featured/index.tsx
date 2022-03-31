@@ -20,7 +20,6 @@ export const FeaturedPost: React.FC<Props> = ({ articles }: any) => {
           <div className="col-lg-8 mb-30">
             <PostCarousel articles={articlesList} />
           </div>
-
           {articlesList.slice(36, 40).map(article => {
             return <ArticleCard key={article.id} {...article} />;
           })}
