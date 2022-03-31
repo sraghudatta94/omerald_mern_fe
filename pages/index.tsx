@@ -1,17 +1,18 @@
 import { HomeTemplate } from '@components/template/home';
-import { getArticle, getAuthors, getTopics } from '@public/static/api';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import articleActionCreator from 'redux/actions/article';
 import authorActionCreator from 'redux/actions/author';
 import topicActionCreator from 'redux/actions/topics';
 
-const Home: React.FC<any> = ({ articles, authors, topics }) => {
+import { articles, authors, topics } from 'prisma/db/getData';
+
+const Home: React.FC<any> = ({ article, author, topic }) => {
   const dispatch = useDispatch();
 
-  let articleList = articles ? articles : [];
-  let authorList = authors ? authors : [];
-  let topicsList = topics ? topics : [];
+  let articleList = article ? article : [];
+  let authorList = author ? author : [];
+  let topicsList = topic ? topic : [];
 
   useEffect(() => {
     articleActionCreator.addArticle(dispatch, articleList);
@@ -28,20 +29,16 @@ const Home: React.FC<any> = ({ articles, authors, topics }) => {
 
 export default Home;
 
-export async function getServerSideProps() {
-  const getArticles = await fetch(getArticle);
-  const articles = await getArticles.json();
+export async function getStaticProps() {
+  const article = await articles();
+  const author = await authors();
+  const topic = await topics();
 
-  const getAuthor = await fetch(getAuthors);
-  const authors = await getAuthor.json();
-
-  const getTopic = await fetch(getTopics);
-  const topics = await getTopic.json();
   return {
     props: {
-      articles,
-      authors,
-      topics,
+      article,
+      author,
+      topic,
     },
   };
 }
