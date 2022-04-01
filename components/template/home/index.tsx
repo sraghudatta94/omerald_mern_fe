@@ -21,7 +21,6 @@ export const HomeTemplate: React.FC = () => {
         <HomeBanner />
         <FeaturedPost articles={article} />
         <Trending />
-        <Categories />
       </main>
     </Layout>
   );

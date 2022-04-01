@@ -11,7 +11,7 @@ export const Header: React.FC<HeaderProp> = ({ openSearch, addClass }) => {
   return (
     <header className="main-header header-style-1 font-heading">
       <div className="header-top">
-        <div className="container">
+        <div className="container ">
           <div className="row pt-20 pb-20">
             <LeftHeader />
             <RightHeader openSearch={openSearch} />
