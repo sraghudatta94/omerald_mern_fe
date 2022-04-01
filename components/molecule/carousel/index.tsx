@@ -19,13 +19,13 @@ export const CarouselImage: React.FC<ArticleType> = ({
           backgroundImage: `url("${articleImagePath + image}")`,
         }}
       >
-        <Link href="/">
+        <Link href={`article/${title}`}>
           <a className="img-link"></a>
         </Link>
         <StarIcon />
         <div className="post-content-overlay text-white ml-30 mr-30 pb-30">
           <h3 className="post-title font-weight-900 mb-20">
-            <Link href="/single">
+            <Link href={`article/${title}`}>
               <a className="text-white">{title}</a>
             </Link>
           </h3>

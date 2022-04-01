@@ -5,7 +5,7 @@ import { ArticleType } from '@public/static/types/topics';
 import { useSelector } from 'react-redux';
 import { articleImagePath } from '@public/static/api';
 
-export const Article: React.FC = () => {
+export const Article: React.FC<any> = ({ openSearch }: any) => {
   let redux = useSelector((state: any) => state);
   let article: Array<ArticleType> = redux.article.data;
   let articlesList: ArticleType[] = article ? article.slice(0, 4) : [];
@@ -25,8 +25,11 @@ export const Article: React.FC = () => {
                 />
               </div>
               <div className="post-content media-body">
-                <h6 className="max-h-[20px] overflow-hidden">
-                  <Link href="/category">
+                <h6
+                  className="max-h-[20px] overflow-hidden"
+                  onClick={openSearch}
+                >
+                  <Link href={`article/${article.title}`}>
                     <a>{article.title}</a>
                   </Link>
                 </h6>
