@@ -80,7 +80,7 @@ export const PopularCard: React.FC<ArticleType> = ({
       <div className="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
         <div className="post-content media-body">
           <h6 className="post-title mb-15 text-limit-2-row font-medium">
-            <Link href="/single">
+            <Link href={`article/${title}`}>
               <a>{title}</a>
             </Link>
           </h6>
@@ -226,7 +226,7 @@ export const LatestCard: React.FC<ArticleType> = ({
                   backgroundImage: `url(${articleImagePath + image})`,
                 }}
               >
-                <Link href="/single">
+                <Link href={`article/${title}`}>
                   <a className="img-link"></a>
                 </Link>
               </div>
@@ -254,7 +254,7 @@ export const LatestCard: React.FC<ArticleType> = ({
                 </Link>
               </div>
               <h5 className="post-title font-weight-900 mb-20">
-                <Link href="/single">
+                <Link href={`article/${title}`}>
                   <a>{title}</a>
                 </Link>
                 <span className="post-format-icon">

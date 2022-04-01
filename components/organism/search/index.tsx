@@ -2,7 +2,7 @@ import React from 'react';
 import { Trending } from './trending';
 import { Article } from './articles';
 
-export const Search = () => {
+export const Search = ({openSearch}) => {
   return (
     <>
       <div className="main-search-form z-9">
@@ -30,7 +30,7 @@ export const Search = () => {
               </div>
             </div>
             <Trending />
-            <Article />
+            <Article openSearch={openSearch} />
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { articles, topics } from 'prisma/db/getData';
 import React, { useEffect } from 'react';
 import topicActionCreator from 'redux/actions/topics';
 import { SinglePostTemplate } from '@components/template/article/singlePost.tsx';
+import { useRouter } from 'next/router';
 
 const Article: React.FC<any> = ({ article, topic }) => {
   const dispatch = useDispatch();
@@ -43,8 +44,9 @@ export async function getStaticPaths() {
   const paths = article.map(post => ({
     params: { slug: post.title },
   }));
+
   return {
     paths: paths,
-    fallback: true,
+    fallback: false,
   };
 }
