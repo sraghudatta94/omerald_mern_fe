@@ -9,7 +9,7 @@ const Article: React.FC<any> = ({ article, topic }) => {
   const dispatch = useDispatch();
 
   let articleList = article ? article : [];
-  let topicList = topic ? article : [];
+  let topicList = topic ? topic : [];
 
   useEffect(() => {
     articleActionCreator.addArticle(dispatch, articleList);
