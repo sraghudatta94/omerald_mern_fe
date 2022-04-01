@@ -21,11 +21,6 @@ export const SinglePostTemplate = () => {
 
   let topicList: TopicType[] = redux.topics.data ? redux.topics.data : [];
 
-  useEffect(() => {
-    if (article)
-      document.getElementById('article-content').innerHTML =
-        article.description;
-  }, [router]);
 
   return (
     <>
@@ -107,7 +102,7 @@ export const SinglePostTemplate = () => {
                       <div className="entry-bottom mt-50 mb-30 wow fadeIn animated">
                         <div className="tags">
                           <span>Tags: </span>
-                          <Link href="/category">
+                          <Link href="/topics">
                             <a>{article ? article.health_topics : ''}</a>
                           </Link>
                         </div>
@@ -397,7 +392,7 @@ export const SinglePostTemplate = () => {
                           <div className="tagcloud mt-50">
                             {topicList.slice(0, 1).map((topic: TopicType) => {
                               return (
-                                <Link href="/category" key={topic.id}>
+                                <Link href="/topics" key={topic.id}>
                                   <a className="tag-cloud-link ">
                                     {topic.title}
                                   </a>
