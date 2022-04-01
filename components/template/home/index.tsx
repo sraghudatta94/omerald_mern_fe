@@ -10,10 +10,9 @@ import React from 'react';
 export const HomeTemplate: React.FC = () => {
   let redux = useSelector((state: any) => state);
   let article: Array<ArticleType> = redux.article.data;
-  let topic: Array<TopicType> = redux.topics.data;
 
   return (
-    <Layout topic={topic}>
+    <Layout>
       <Head>
         <title>Omerald | Home</title>
       </Head>

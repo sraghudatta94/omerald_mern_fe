@@ -1,18 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Layout } from '@components/common';
 import Link from 'next/link';
 import Image from 'next/image';
-import { topics } from 'prisma/db/getData';
+import { articles, authors, topics } from 'prisma/db/getData';
+import { useDispatch } from 'react-redux';
+import articleActionCreator from 'redux/actions/article';
+import topicActionCreator from 'redux/actions/topics';
+import authorActionCreator from 'redux/actions/author';
 
-const Error = ({ topic }: any) => {
+const Error = ({ article, author, topic }) => {
+  const dispatch = useDispatch();
+
+  let articleList = article ? article : [];
+  let authorList = author ? author : [];
+  let topicsList = topic ? topic : [];
+
+  useEffect(() => {
+    articleActionCreator.addArticle(dispatch, articleList);
+    authorActionCreator.setAuthor(dispatch, authorList);
+    topicActionCreator.setTopics(dispatch, topicsList);
+  });
+
   return (
-    <Layout topic={topic}>
+    <Layout>
       <main className="bg-grey pt-80 pb-50">
         <div className="container">
           <div className="row pt-80">
             <div className="col-lg-6 col-md-12 d-lg-block d-none pr-50">
               <Image
-                src="assets/imgs/theme/page-not-found.png"
+                src="https://res.cloudinary.com/raghu369/image/upload/v1647676000/page-not-found_hu4vrq.png"
                 width="500"
                 height="400"
                 alt=""
@@ -39,11 +55,11 @@ const Error = ({ topic }: any) => {
                 removed.
                 <br /> visit the
                 <Link href="/">
-                  <a>Homepage</a>
+                  <a> Homepage </a>
                 </Link>
                 or
                 <Link href="/page-contact">
-                  <a>Contact us</a>
+                  <a> Contact us </a>
                 </Link>
                 about the problem
               </p>
@@ -68,10 +84,14 @@ const Error = ({ topic }: any) => {
 export default Error;
 
 export async function getStaticProps() {
+  const article = await articles();
+  const author = await authors();
   const topic = await topics();
 
   return {
     props: {
+      article,
+      author,
       topic,
     },
   };

@@ -1,16 +1,17 @@
 import { SocialLinks } from '@components/molecule/social';
 import { getTopics } from '@public/static/api';
-import { TopicType } from '@public/static/types/topics';
-import { useSelector } from 'react-redux';
+import { ArticleType, TopicType } from '@public/static/types/topics';
 import Link from 'next/link';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const Footer = ({ topic }) => {
-  let topicsList = topic ? topic : [];
+const Footer = () => {
+  let redux = useSelector((state: any) => state);
+  let topicsList: Array<TopicType> = redux.topics.data ? redux.topics.data : [];
 
   return (
     <>
-      <footer className="pt-50 pb-20 bg-grey  ">
+      <footer className="pt-50 pb-20 bg-grey">
         <div className="container w-[95vw] md:w-[65vw]">
           <div className="row">
             <div className="col-lg-3 col-md-6">
@@ -146,13 +147,3 @@ const Footer = ({ topic }) => {
 };
 
 export default Footer;
-
-export async function getServerSideProps() {
-  const topic = await fetch(getTopics);
-
-  return {
-    props: {
-      topic,
-    },
-  };
-}
