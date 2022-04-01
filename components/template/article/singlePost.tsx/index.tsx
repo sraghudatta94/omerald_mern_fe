@@ -21,7 +21,6 @@ export const SinglePostTemplate = () => {
 
   let topicList: TopicType[] = redux.topics.data ? redux.topics.data : [];
 
-
   return (
     <>
       <Layout>
@@ -163,9 +162,11 @@ export const SinglePostTemplate = () => {
                         <div className="author-image mb-30">
                           <Link href="/author">
                             <a>
-                              <img
+                              <Image
                                 src="assets/imgs/authors/author-3.jpg"
-                                alt=""
+                                alt="author"
+                                width="60"
+                                height="60"
                                 className="avatar"
                               />
                             </a>
@@ -238,9 +239,11 @@ export const SinglePostTemplate = () => {
                           <div className="single-comment justify-content-between d-flex">
                             <div className="user justify-content-between d-flex">
                               <div className="thumb">
-                                <img
+                                <Image
                                   src="assets/imgs/authors/author-4.jpg"
-                                  alt=""
+                                  alt="author"
+                                  width="60"
+                                  height="60"
                                 />
                               </div>
                               <div className="desc">

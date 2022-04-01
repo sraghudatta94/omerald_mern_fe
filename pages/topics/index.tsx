@@ -44,7 +44,10 @@ const Topics = ({ article, author, topic }) => {
               <div className="row">
                 {topicsList.slice(0, 8).map(topic => {
                   return (
-                    <article className="col-md-6 mb-40 wow fadeInUp  animated">
+                    <article
+                      className="col-md-6 mb-40 wow fadeInUp  animated"
+                      key={topic.id}
+                    >
                       <div className="post-card-1 border-radius-10 hover-up">
                         <div
                           className="post-thumb thumb-overlay img-hover-slide position-relative"

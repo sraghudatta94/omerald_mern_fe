@@ -102,6 +102,7 @@ const Topics = ({ article, author, topic }) => {
                   src={topicImagePath + topics.image}
                   width="800"
                   height="400"
+                  alt="topic"
                 />
               </div>
               <div className="entry-main-content dropcap wow fadeIn animated content-body">
@@ -177,10 +178,12 @@ const Topics = ({ article, author, topic }) => {
                 <div className="author-image mb-30">
                   <Link href="/author">
                     <a>
-                      <img
+                      <Image
                         src="assets/imgs/authors/author-3.jpg"
-                        alt=""
+                        alt="author"
                         className="avatar"
+                        width="60"
+                        height="60"
                       />
                     </a>
                   </Link>
@@ -266,9 +269,11 @@ export async function getStaticProps() {
 export async function getStaticPaths() {
   const topic = await topics();
 
-  const paths = topic.map(post => ({
-    params: { slug: post.title },
-  }));
+  const paths = topic
+    .filter(topic => topic.body !== null)
+    .map(post => ({
+      params: { slug: post.title },
+    }));
 
   return {
     paths: paths,
