@@ -11,7 +11,7 @@ export const Categories = () => {
     ? redux.article.data
     : [];
   let topicList: TopicType[] = redux.topics.data ? redux.topics.data : [];
-  let count = 0;
+
   return (
     <>
       <div className="site-bottom pt-50 pb-50">
