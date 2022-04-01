@@ -16,9 +16,11 @@ export const RightHeader: React.FC<HeaderProp> = ({ openSearch }: any) => {
           Search
         </span>
       </Button>
-      <Button className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow">
-        Register
-      </Button>
+      <Links href="/register">
+        <Button className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow">
+          Register
+        </Button>
+      </Links>
     </div>
   );
 };
