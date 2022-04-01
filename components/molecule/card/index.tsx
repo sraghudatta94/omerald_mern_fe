@@ -44,7 +44,7 @@ export const ArticleCard: React.FC<ArticleType> = ({
         </div>
         <div className="post-content p-30">
           <div className="entry-meta meta-0 font-small mb-10">
-            <Link href="/category">
+            <Link href="/topics">
               <a>
                 <span className="post-cat text-info">Health</span>
               </a>
@@ -177,7 +177,7 @@ export const TrendingCard: React.FC<ArticleType> = ({
           </div>
           <div className="post-content p-30">
             <div className="entry-meta meta-0 font-small mb-10">
-              <Link href="/category">
+              <Link href="/topics">
                 <a>
                   <span className="post-cat text-info">Health</span>
                 </a>
@@ -247,7 +247,7 @@ export const LatestCard: React.FC<ArticleType> = ({
           <div className="col-md-8 align-self-center">
             <div className="post-content">
               <div className="entry-meta meta-0 font-small mb-10">
-                <Link href="/category">
+                <Link href="/topics">
                   <a>
                     <span className="post-cat text-primary">Health</span>
                   </a>

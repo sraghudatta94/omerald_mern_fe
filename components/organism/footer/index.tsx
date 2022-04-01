@@ -85,7 +85,7 @@ const Footer = () => {
                 <div className="tagcloud mt-50">
                   {topicsList.slice(0, 4).map((topic: TopicType) => {
                     return (
-                      <Link href="/category" key={topic.id}>
+                      <Link href="/topics" key={topic.id}>
                         <a className="tag-cloud-link">{topic.title}</a>
                       </Link>
                     );

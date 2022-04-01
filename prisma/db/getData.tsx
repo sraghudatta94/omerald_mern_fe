@@ -46,6 +46,8 @@ export async function topics() {
         image: true,
         body: true,
         created_at: true,
+        created_by: true,
+        status: true,
       },
     });
 

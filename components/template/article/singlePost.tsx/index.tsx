@@ -21,12 +21,6 @@ export const SinglePostTemplate = () => {
 
   let topicList: TopicType[] = redux.topics.data ? redux.topics.data : [];
 
-  useEffect(() => {
-    if (article)
-      document.getElementById('article-content').innerHTML =
-        article.description;
-  }, [router]);
-
   return (
     <>
       <Layout>
@@ -107,7 +101,7 @@ export const SinglePostTemplate = () => {
                       <div className="entry-bottom mt-50 mb-30 wow fadeIn animated">
                         <div className="tags">
                           <span>Tags: </span>
-                          <Link href="/category">
+                          <Link href="/topics">
                             <a>{article ? article.health_topics : ''}</a>
                           </Link>
                         </div>
@@ -168,9 +162,11 @@ export const SinglePostTemplate = () => {
                         <div className="author-image mb-30">
                           <Link href="/author">
                             <a>
-                              <img
+                              <Image
                                 src="assets/imgs/authors/author-3.jpg"
-                                alt=""
+                                alt="author"
+                                width="60"
+                                height="60"
                                 className="avatar"
                               />
                             </a>
@@ -243,9 +239,11 @@ export const SinglePostTemplate = () => {
                           <div className="single-comment justify-content-between d-flex">
                             <div className="user justify-content-between d-flex">
                               <div className="thumb">
-                                <img
+                                <Image
                                   src="assets/imgs/authors/author-4.jpg"
-                                  alt=""
+                                  alt="author"
+                                  width="60"
+                                  height="60"
                                 />
                               </div>
                               <div className="desc">
@@ -397,7 +395,7 @@ export const SinglePostTemplate = () => {
                           <div className="tagcloud mt-50">
                             {topicList.slice(0, 1).map((topic: TopicType) => {
                               return (
-                                <Link href="/category" key={topic.id}>
+                                <Link href="/topics" key={topic.id}>
                                   <a className="tag-cloud-link ">
                                     {topic.title}
                                   </a>
