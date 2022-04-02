@@ -10,7 +10,7 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const Trending: React.FC = () => {
+const Trending: React.FC = () => {
   let redux = useSelector((state: any) => state);
   let articlesList: ArticleType[] = redux.article.data
     ? redux.article.data
@@ -185,3 +185,5 @@ export const Trending: React.FC = () => {
     </div>
   );
 };
+
+export default Trending;

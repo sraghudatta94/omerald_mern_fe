@@ -19,7 +19,6 @@ const Topics = ({ article, author, topic }) => {
   let router = useRouter().query.slug;
 
   let topics = topicList.filter(art => art.title === router)[0];
-  console.log(topics);
 
   useEffect(() => {
     articleActionCreator.addArticle(dispatch, articleList);
@@ -179,7 +178,7 @@ const Topics = ({ article, author, topic }) => {
                   <Link href="/author">
                     <a>
                       <Image
-                        src="assets/imgs/authors/author-3.jpg"
+                        src="/assets/imgs/authors/author-3.jpg"
                         alt="author"
                         className="avatar"
                         width="60"

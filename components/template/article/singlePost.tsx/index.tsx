@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Layout } from '@components/common';
+import Layout from '@components/common';
 import Link from 'next/link';
-import { SocialLinks } from '@components/molecule/social';
+import SocialLinks from '@components/molecule/social';
 import Image from 'next/image';
 import { articleImagePath } from '@public/static/api';
 import { useSelector } from 'react-redux';
@@ -163,7 +163,7 @@ export const SinglePostTemplate = () => {
                           <Link href="/author">
                             <a>
                               <Image
-                                src="assets/imgs/authors/author-3.jpg"
+                                src="/assets/imgs/authors/author-3.jpg"
                                 alt="author"
                                 width="60"
                                 height="60"
@@ -240,7 +240,7 @@ export const SinglePostTemplate = () => {
                             <div className="user justify-content-between d-flex">
                               <div className="thumb">
                                 <Image
-                                  src="assets/imgs/authors/author-4.jpg"
+                                  src="/assets/imgs/authors/author-4.jpg"
                                   alt="author"
                                   width="60"
                                   height="60"

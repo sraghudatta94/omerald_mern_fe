@@ -1,8 +1,8 @@
 import { homeBannerImage } from '@public/static/data/image';
-import React from 'react';
+import React, { FC } from 'react';
 import Image from 'next/image';
 
-export const HomeBanner = () => {
+const HomeBanner: FC = () => {
   return (
     <div className="featured-1">
       <div className="container">
@@ -31,6 +31,8 @@ export const HomeBanner = () => {
               width="400"
               height="450"
               alt="bannerImage"
+              placeholder="blur"
+              blurDataURL="@public/assets/imgs/blur/doctor.png"
             />
           </div>
         </div>
@@ -38,3 +40,5 @@ export const HomeBanner = () => {
     </div>
   );
 };
+
+export default HomeBanner;

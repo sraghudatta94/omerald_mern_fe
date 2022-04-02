@@ -2,7 +2,7 @@ import { TopicType } from '@public/static/types/topics';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-export const Tags = () => {
+const Tags = () => {
   let redux = useSelector((state: any) => state);
 
   let topicList: TopicType[] = redux.topics.data ? redux.topics.data : [];
@@ -34,3 +34,5 @@ export const Tags = () => {
     </div>
   );
 };
+
+export default Tags;

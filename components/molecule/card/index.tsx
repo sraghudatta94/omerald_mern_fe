@@ -1,74 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { SocialLinks } from '../social';
+import SocialLinks from '../social';
 import { ArticleType, TopicType } from '@public/static/types/topics';
 import { articleImagePath, topicImagePath } from '@public/static/api';
 import Image from 'next/image';
 import { create } from 'domain';
-
-export const ArticleCard: React.FC<ArticleType> = ({
-  image,
-  title,
-  created_at,
-}) => {
-  return (
-    <article
-      className="col-lg-4 col-md-6 mb-30 wow fadeInUp animated"
-      data-wow-delay="0.2s"
-    >
-      <div className="post-card-1 border-radius-10 hover-up">
-        <div
-          className="post-thumb thumb-overlay img-hover-slide position-relative"
-          style={{
-            backgroundImage: `url(${articleImagePath + image})`,
-          }}
-        >
-          <Link href="/single">
-            <a className="img-link"></a>
-          </Link>
-          <span className="top-right-icon bg-success">
-            <i className="elegant-icon icon_camera_alt"></i>
-          </span>
-          <ul className="social-share">
-            <li>
-              <Link href="/#">
-                <a>
-                  <i className="elegant-icon social_share"></i>
-                </a>
-              </Link>
-            </li>
-            <li>
-              <SocialLinks />
-            </li>
-          </ul>
-        </div>
-        <div className="post-content p-30">
-          <div className="entry-meta meta-0 font-small mb-10">
-            <Link href="/topics">
-              <a>
-                <span className="post-cat text-info">Health</span>
-              </a>
-            </Link>
-          </div>
-          <div className="d-flex post-card-content">
-            <h5 className="post-title mb-20 text-2xl font-weight-900">
-              <Link href={`article/${title}`}>
-                <a>{title}</a>
-              </Link>
-            </h5>
-            <div className="entry-meta meta-1 float-left font-x-small text-uppercase">
-              <span className="post-on">
-                {created_at.toString().substring(0, 10)}
-              </span>
-              <span className="time-reading has-dot">12 mins read</span>
-              <span className="post-by has-dot">23k views</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  );
-};
 
 export const PopularCard: React.FC<ArticleType> = ({
   image,

@@ -1,5 +1,4 @@
-import { Layout } from '@components/common';
-import { articles, authors, topics } from 'prisma/db/getData';
+import { articles, authors, topics, users } from 'prisma/db/getData';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import articleActionCreator from 'redux/actions/article';
@@ -8,19 +7,23 @@ import parse from 'html-react-parser';
 import topicActionCreator from 'redux/actions/topics';
 import Link from 'next/link';
 import { topicImagePath } from '@public/static/api';
-import { SocialLinks } from '@components/molecule/social';
+import SocialLinks from '@components/molecule/social';
+import Layout from '@components/common';
+import userActionCreator from 'redux/actions/users';
 
-const Topics = ({ article, author, topic }) => {
+const Topics = ({ article, author, topic, user }) => {
   const dispatch = useDispatch();
 
   let articleList = article ? article : [];
   let authorList = author ? author : [];
   let topicsList = topic ? topic : [];
+  let usersList = user ? user : [];
 
   useEffect(() => {
     articleActionCreator.addArticle(dispatch, articleList);
     authorActionCreator.setAuthor(dispatch, authorList);
     topicActionCreator.setTopics(dispatch, topicsList);
+    userActionCreator.setUsers(dispatch, usersList);
   });
 
   return (
@@ -149,12 +152,14 @@ export async function getStaticProps() {
   const article = await articles();
   const author = await authors();
   const topic = await topics();
+  const user = await users();
 
   return {
     props: {
       article,
       author,
       topic,
+      user,
     },
   };
 }

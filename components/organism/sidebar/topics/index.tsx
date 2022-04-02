@@ -1,13 +1,15 @@
 import { Links } from '@components/atoms/link';
 import { TopicType } from '@public/static/types/topics';
-import Link from 'next/link';
-import React from 'react';
 import { useSelector } from 'react-redux';
+import { TopicsListType } from '@public/types';
+import React, { FC } from 'react';
 
-export const TopicsList = () => {
+const TopicsList: FC = () => {
   let redux = useSelector((state: any) => state);
-  let topics: Array<TopicType> = redux.topics.data;
-  let topicsList: TopicType[] = topics ? topics.slice(0, 5) : [];
+
+  let topicsList: TopicType[] = redux.topics.data
+    ? redux.topics.data.slice(0, 5)
+    : [];
 
   return (
     <div className="sidebar-widget widget_categories mb-50 mt-30">
@@ -16,10 +18,10 @@ export const TopicsList = () => {
       </div>
       <div className="widget_nav_menu">
         <ul>
-          {topicsList.map(topic => {
+          {topicsList.map(({ title, id }) => {
             return (
-              <li className="cat-item cat-item-2" key={topic.id}>
-                <Links href="/">{topic.title}</Links>
+              <li className="cat-item cat-item-2" key={id}>
+                <Links href={`/topics/${title}`}>{title}</Links>
                 <span className="post-count mx-2">{30}</span>
               </li>
             );
@@ -29,3 +31,5 @@ export const TopicsList = () => {
     </div>
   );
 };
+
+export default TopicsList;

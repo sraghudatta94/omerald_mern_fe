@@ -1,11 +1,12 @@
 import React from 'react';
-import Link from 'next/link';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import { Toggle } from './toggle';
-import { TopicsList } from './topics';
-import { Posts } from './posts';
+import dynamic from 'next/dynamic';
 
-export const Sidebar: React.FC = () => {
+const PerfectScrollbar = dynamic(() => import('react-perfect-scrollbar'));
+const Toggle = dynamic(() => import('./toggle/index'));
+const Posts = dynamic(() => import('./posts/index'));
+const TopicsList = dynamic(() => import('./topics/index'));
+
+const Sidebar: React.FC = () => {
   return (
     <aside id="sidebar-wrapper" className="custom-scrollbar offcanvas-sidebar">
       <PerfectScrollbar>
@@ -18,3 +19,5 @@ export const Sidebar: React.FC = () => {
     </aside>
   );
 };
+
+export default Sidebar;
