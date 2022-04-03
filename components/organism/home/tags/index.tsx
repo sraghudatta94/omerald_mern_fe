@@ -1,4 +1,5 @@
 import { TopicType } from '@public/static/types/topics';
+import Link from 'next/link';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
@@ -23,7 +24,9 @@ const Tags = () => {
               {topicList.slice(0, 3).map((topic: TopicType) => {
                 return (
                   <li className="list-inline-item" key={topic.id}>
-                    <a href="#">#{topic.title}</a>
+                    <Link href={`/topics/${topic.title}`}>
+                      <a>#{topic.title}</a>
+                    </Link>
                   </li>
                 );
               })}

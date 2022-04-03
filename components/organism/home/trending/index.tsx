@@ -57,7 +57,11 @@ const Trending: React.FC = (): ReactElement => {
                 })}
               </div>
             </div>
-            <Pagination />
+            <Link href="/article">
+              <a>
+                <button className="btn bg-blue-600 text-white">See More</button>
+              </a>
+            </Link>
           </div>
           <div className="col-lg-4">
             <div className="widget-area">

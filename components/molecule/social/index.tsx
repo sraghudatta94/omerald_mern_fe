@@ -8,7 +8,7 @@ const SocialLinks: React.FC = () => {
       {iconList.map(icon => {
         return (
           <li className="list-inline-item" key={icon.id}>
-            <SocialIcons bg={icon.code} href={'/'}>
+            <SocialIcons bg={icon.code} href={icon.route}>
               <i className={`elegant-icon ${icon.icon}`}></i>
             </SocialIcons>
           </li>

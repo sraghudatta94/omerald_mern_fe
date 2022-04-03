@@ -24,7 +24,7 @@ const TopicsCard = ({ id, image, title, created_at }) => {
         </div>
         <div className="post-content media-body">
           <p className="mb-10">
-            <Link href="/author">
+            <Link href="/topics">
               <a>
                 <strong>{title}</strong>
               </a>

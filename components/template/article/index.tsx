@@ -15,7 +15,10 @@ const ArticleCard = dynamic(
 const ArticleTemplate = () => {
   let redux = useSelector((state: any) => state);
   let articleList = redux.article.data ? redux.article.data : [];
-  let [filteredList, setFilteredList] = useState(articleList);
+  let [filteredList, setFilteredList] = useState(articleList.slice(0, 3));
+  let [lastPosition, setLastPosition] = useState(0);
+  let [hasMore, setHasMore] = useState(true);
+  const perPage = 3;
 
   const onChange = e => {
     setFilteredList(
@@ -25,13 +28,24 @@ const ArticleTemplate = () => {
     );
   };
 
+  const moreData = () => {
+    let newList = articleList.slice(
+      filteredList.length,
+      filteredList.length + perPage
+    );
+    setFilteredList(prev => [...prev, ...newList]);
+    if (filteredList.length === articleList.length) {
+      setHasMore(false);
+    }
+  };
+
   const debouncedChangeHandler = useCallback(debounce(onChange, 300), []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Layout>
       <ArticleMetaTag />
-      <main>
-        <div className="w-[95vw] m-auto">
+      <main className="body">
+        <div className="w-[95vw] md:w-[65vw] m-auto">
           <div className="archive-header my-[10vh] ">
             <div className="container flex justify-between">
               <h2 className="font-weight-900 ">Article</h2>
@@ -42,11 +56,20 @@ const ArticleTemplate = () => {
             </div>
           </div>
           <div className="container">
-            <div className="row">
-              {filteredList.map((article, index) => (
-                <ArticleCard {...article} key={article.id} />
-              ))}
-            </div>
+            <InfiniteScroll
+              dataLength={filteredList.length} //This is important field to render the next data
+              next={moreData}
+              hasMore={hasMore}
+              className={'overflow-x'}
+              loader={<h4>Loading...</h4>}
+              endMessage={<p>All Articles displayed</p>}
+            >
+              <div className="row">
+                {filteredList.map((article, index) => (
+                  <ArticleCard {...article} key={article.id} />
+                ))}
+              </div>
+            </InfiniteScroll>
           </div>
         </div>
       </main>

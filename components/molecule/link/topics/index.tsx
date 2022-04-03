@@ -8,10 +8,10 @@ export const TopicsCloudList: FC<TopicsListType> = ({
 }: TopicsListType) => {
   return (
     <>
-      <div className="tagcloud mt-50">
+      <div className="tagcloud mt-10">
         {topicsList.map(({ id, title }: TopicType) => {
           return (
-            <Links href="/topics" key={id}>
+            <Links href={`/topics/${title}`} key={id}>
               <a className="tag-cloud-link">{title}</a>
             </Links>
           );
