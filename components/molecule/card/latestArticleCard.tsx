@@ -29,6 +29,7 @@ const LatestCard: React.FC<ArticleType> = ({
                 <Link href={`article/${title}`}>
                   <a className="img-link">
                     <Image
+                      alt="articleImage"
                       src={articleImagePath + image}
                       layout="fill"
                       objectFit="cover"

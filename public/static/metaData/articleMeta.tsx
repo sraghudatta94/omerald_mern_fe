@@ -1,22 +1,22 @@
 import React from 'react';
 import Head from 'next/head';
 
-const HomeMetaTags = () => {
+const ArticleMetaTag = () => {
   return (
     <Head>
-      <title>Omerald | Home</title>
-      <meta name="title" content="Omerald | Home" />
+      <title>Omerald | Articles</title>
+      <meta name="title" content="Omerald | Articles" />
       <meta
         name="description"
-        content="Explore Blogs and articles on any health topic for yourself and family"
+        content="Explore a range of articles for health and wellness."
       />
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://metatags.io/" />
-      <meta property="og:title" content="Omerald | Home" />
+      <meta property="og:title" content="Omerald | Articles" />
       <meta
         property="og:description"
-        content="Explore Blogs and articles on any health topic for yourself and family"
+        content="Explore a range of articles for health and wellness."
       />
       <meta
         property="og:image"
@@ -25,10 +25,10 @@ const HomeMetaTags = () => {
 
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://metatags.io/" />
-      <meta property="twitter:title" content="Omerald | Home" />
+      <meta property="twitter:title" content="Omerald | Articles" />
       <meta
         property="twitter:description"
-        content="Explore Blogs and articles on any health topic for yourself and family"
+        content="Explore a range of articles for health and wellness."
       />
       <meta
         property="twitter:image"
@@ -38,5 +38,4 @@ const HomeMetaTags = () => {
   );
 };
 
-export default HomeMetaTags;
-  
+export default ArticleMetaTag;

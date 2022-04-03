@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Layout } from '@components/common';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { articles, authors, topics } from 'prisma/db/getData';
@@ -7,7 +7,9 @@ import { useDispatch } from 'react-redux';
 import articleActionCreator from 'redux/actions/article';
 import topicActionCreator from 'redux/actions/topics';
 import authorActionCreator from 'redux/actions/author';
+import dynamic from 'next/dynamic';
 
+const Layout = dynamic(() => import('components/common/index'));
 const Error = ({ article, author, topic }) => {
   const dispatch = useDispatch();
 

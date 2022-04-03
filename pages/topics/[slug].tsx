@@ -1,15 +1,16 @@
-import { Layout } from '@components/common';
 import { articles, authors, topics } from 'prisma/db/getData';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import articleActionCreator from 'redux/actions/article';
-import authorActionCreator from 'redux/actions/author';
 import parse from 'html-react-parser';
 import topicActionCreator from 'redux/actions/topics';
 import Link from 'next/link';
 import { topicImagePath } from '@public/static/api';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+const Layout = dynamic(() => import('components/common'));
 
 const Topics = ({ article, author, topic }) => {
   const dispatch = useDispatch();

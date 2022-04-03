@@ -46,3 +46,19 @@ export const getArticleTopics = (
 
   return topicsArticle;
 };
+
+export const getAllArticleTopics = (
+  topicId: string,
+  topicsList: TopicType[]
+): string[] => {
+  let topicsArticle: string[] = [];
+  topicId.split(',').map(x => {
+    topicsList.forEach(topic => {
+      if (topic.id.toString() === x) {
+        topicsArticle.push(topic.title);
+      }
+    });
+  });
+
+  return topicsArticle;
+};

@@ -94,8 +94,8 @@ const Trending: React.FC = (): ReactElement => {
                     {articlesList.slice(25, 29).map(article => {
                       return (
                         <li key={article.id}>
-                          <Link href="/#">
-                            <a href="/">
+                          <Link href="/">
+                            <a href="#">
                               <Image
                                 className="border-radius-5"
                                 src={articleImagePath + article.image}

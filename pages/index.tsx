@@ -1,19 +1,21 @@
-import articleActionCreator from 'redux/actions/article';
-import authorActionCreator from 'redux/actions/author';
-import topicActionCreator from 'redux/actions/topics';
-import React from 'react';
+import { articles, authors, topics, users } from 'prisma/db/getData';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { TopicsListType } from '@public/types';
 import {
   ArticleType,
   AuthorType,
   TopicType,
   UserType,
 } from '@public/static/types/topics';
-import { articles, authors, topics, users } from 'prisma/db/getData';
-import { HomeTemplate } from '@components/template/home';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { TopicsListType } from '@public/types';
+import articleActionCreator from 'redux/actions/article';
+import authorActionCreator from 'redux/actions/author';
+import topicActionCreator from 'redux/actions/topics';
 import userActionCreator from 'redux/actions/users';
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+const HomeTemplate = dynamic(() => import('@components/template/home/index'));
 
 const Home: React.FC<any> = ({ article, author, topic, user }) => {
   const dispatch = useDispatch();
@@ -39,8 +41,8 @@ export async function getStaticProps() {
   const article: AuthorType[] = await articles();
   const author: AuthorType[] = await authors();
   const topic: TopicType[] = await topics();
-  let user: UserType[] = await users();
-  user = user.filter(u => u.name !== null);
+  const user: UserType[] = await users();
+
   return {
     props: {
       article,

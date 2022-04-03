@@ -29,6 +29,7 @@ const TrendingCard: React.FC<ArticleType> = ({
             <Link href="/single">
               <a className="img-link">
                 <Image
+                  alt="articleImage"
                   src={articleImagePath + image}
                   objectFit="cover"
                   layout="fill"

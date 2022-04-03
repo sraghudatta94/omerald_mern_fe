@@ -36,6 +36,7 @@ const ArticleCard: React.FC<ArticleType> = ({
           <Link href={`/article/${title}`}>
             <a className="img-link">
               <Image
+                alt="articleImage"
                 src={articleImagePath + image}
                 objectFit="cover"
                 layout="fill"

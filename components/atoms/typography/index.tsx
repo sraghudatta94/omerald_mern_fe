@@ -15,3 +15,7 @@ export function H5({ children, ...props }: HTMLAttributes<HTMLElement>) {
     </p>
   );
 }
+
+export function PostTitle({ title }: HTMLAttributes<HTMLElement>) {
+  return <h1 className="entry-title mb-30 font-weight-900">{title}</h1>;
+}

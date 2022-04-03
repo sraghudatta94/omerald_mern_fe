@@ -1,20 +1,27 @@
-import articleActionCreator from 'redux/actions/article';
 import { useDispatch } from 'react-redux';
-import { articles, topics } from 'prisma/db/getData';
-import React, { useEffect } from 'react';
+import { articles, topics, users } from 'prisma/db/getData';
+import { useEffect } from 'react';
+import React from 'react';
+import dynamic from 'next/dynamic';
 import topicActionCreator from 'redux/actions/topics';
-import { SinglePostTemplate } from '@components/template/article/singlePost.tsx';
-import { useRouter } from 'next/router';
+import articleActionCreator from 'redux/actions/article';
+import userActionCreator from 'redux/actions/users';
 
-const Article: React.FC<any> = ({ article, topic }) => {
+const SinglePostTemplate = dynamic(
+  () => import('@components/template/article/singlePost.tsx')
+);
+
+const Article: React.FC<any> = ({ article, topic, user }) => {
   const dispatch = useDispatch();
 
   let articleList = article ? article : [];
   let topicList = topic ? topic : [];
+  let userList = user ? user : [];
 
   useEffect(() => {
     articleActionCreator.addArticle(dispatch, articleList);
     topicActionCreator.setTopics(dispatch, topicList);
+    userActionCreator.setUsers(dispatch, userList);
   });
 
   return (
@@ -29,11 +36,13 @@ export default Article;
 export async function getStaticProps() {
   const article = await articles();
   const topic = await topics();
+  const user = await users();
 
   return {
     props: {
       article,
       topic,
+      user,
     },
   };
 }
