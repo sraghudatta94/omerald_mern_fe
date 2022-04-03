@@ -1,7 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
-import CarouselImage from '@components/molecule/carousel';
 import { ArticleType } from '@public/static/types/topics';
+import dynamic from 'next/dynamic';
+
+const CarouselImage = dynamic(() => import('@components/molecule/carousel'));
 
 type Props = {
   articles?: ArticleType[];

@@ -40,7 +40,7 @@ const ArticleCard: React.FC<ArticleType> = ({
                 objectFit="cover"
                 layout="fill"
                 placeholder="blur"
-                blurDataURL="public/assets/imgs/blur/doctorCard.wepg"
+                blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
               />
             </a>
           </Link>
@@ -55,9 +55,7 @@ const ArticleCard: React.FC<ArticleType> = ({
                 </a>
               </Link>
             </li>
-            <li className="d-inline">
-              <SocialLinks />
-            </li>
+            <SocialLinks />
           </ul>
         </div>
         <div className="post-content  p-30">

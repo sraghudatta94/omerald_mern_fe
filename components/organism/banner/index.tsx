@@ -32,7 +32,7 @@ const HomeBanner: FC = () => {
               height="450"
               alt="bannerImage"
               placeholder="blur"
-              blurDataURL="@public/assets/imgs/blur/doctor.png"
+              blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
             />
           </div>
         </div>

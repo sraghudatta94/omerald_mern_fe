@@ -15,6 +15,8 @@ const PostImage: React.FC<ArticleType> = ({ image }) => {
             className="rounded border-2"
             src={articleImagePath + image}
             alt="postImage"
+            blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
+            placeholder="blur"
           />
         </a>
       </Links>

@@ -26,25 +26,26 @@ const CarouselImage: React.FC<ArticleType> = ({
               objectFit="cover"
               layout="fill"
               placeholder="blur"
-              blurDataURL="/public/assets/imgs/blur/doctorCard.wepg"
+              blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
             />
-            <div className="post-content-overlay text-white ml-30 mr-30 pb-30">
-              <h3 className="post-title font-weight-900 mb-20">
-                <Link href={`article/${title}`}>
-                  <a className="text-white">{title}</a>
-                </Link>
-              </h3>
-              <p>{short_description}</p>
-              <div className="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
-                <span className="post-on">{author ? author : 'Omerald'} </span>
-                <span className="hit-count has-dot">23k views</span>
-                <span className="hit-count has-dot">
-                  {checkReadTime(description)}
-                </span>
-              </div>
-            </div>
           </a>
         </Link>
+        <div className="post-content-overlay text-white ml-30 mr-30 pb-30">
+          <h3 className="post-title font-weight-900 mb-20">
+            <Link href={`article/${title}`}>
+              <a className="text-white">{title}</a>
+            </Link>
+          </h3>
+          <p>{short_description}</p>
+          <div className="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
+            <span className="post-on">{author ? author : 'Omerald'} </span>
+            <span className="hit-count has-dot">23k views</span>
+            <span className="hit-count has-dot">
+              {checkReadTime(description)}
+            </span>
+          </div>
+        </div>
+
         <StarIcon />
         <div className="post-content-overlay text-white ml-30 mr-30 pb-30">
           <h3 className="post-title font-weight-900 mb-20">
