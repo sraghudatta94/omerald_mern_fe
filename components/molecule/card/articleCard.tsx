@@ -21,7 +21,7 @@ const ArticleCard: React.FC<ArticleType> = ({
   description,
   writer_id,
   health_topics,
-}) => {
+}: any) => {
   let redux = useSelector((state: any) => state);
   let userList: UserType[] = redux.users ? redux.users.data : [];
   let topicsList: TopicType[] = redux.topics ? redux.topics.data : [];
@@ -33,7 +33,7 @@ const ArticleCard: React.FC<ArticleType> = ({
     >
       <div className="post-card-1 border-radius-10 hover-up">
         <div className="post-thumb thumb-overlay img-hover-slide position-relative">
-          <Link href={`/article/${title}`}>
+          <Link href={`/article/post/${title}`}>
             <a className="img-link">
               <Image
                 alt="articleImage"
@@ -71,7 +71,7 @@ const ArticleCard: React.FC<ArticleType> = ({
           </div>
           <div className="d-flex post-card-content">
             <h5 className="post-title mb-20 text-xl font-weight-900">
-              <Link href={`article/${title}`}>
+              <Link href={`article/post/${title}`}>
                 <a>{title}</a>
               </Link>
             </h5>

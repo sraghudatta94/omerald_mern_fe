@@ -24,11 +24,7 @@ const Article: React.FC<any> = ({ article, topic, user }) => {
     userActionCreator.setUsers(dispatch, userList);
   });
 
-  return (
-    <>
-      <SinglePostTemplate />
-    </>
-  );
+  return <SinglePostTemplate />;
 };
 
 export default Article;
