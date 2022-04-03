@@ -21,11 +21,7 @@ const Article: React.FC<any> = ({ article, topic }) => {
     topicActionCreator.setTopics(dispatch, topicList);
   });
 
-  return (
-    <>
-      <ArticleTemplate />
-    </>
-  );
+  return <ArticleTemplate />;
 };
 
 export async function getStaticProps() {

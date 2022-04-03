@@ -31,7 +31,7 @@ const CarouselImage: React.FC<ArticleType> = ({
           />
           <div className="post-content-overlay text-white ml-30 mr-30 pb-30">
             <h3 className="post-title font-weight-900 mb-20">
-              <Link href={`article/${title}`}>
+              <Link href={`article/post/${title}`}>
                 <a className="text-white">{title}</a>
               </Link>
             </h3>
@@ -49,7 +49,7 @@ const CarouselImage: React.FC<ArticleType> = ({
         <StarIcon />
         <div className="post-content-overlay text-white ml-30 mr-30 pb-30">
           <h3 className="post-title font-weight-900 mb-20">
-            <Link href={`article/${title}`}>
+            <Link href={`article/post/${title}`}>
               <a className="text-white">{title}</a>
             </Link>
           </h3>
