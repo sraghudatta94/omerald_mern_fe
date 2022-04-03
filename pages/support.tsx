@@ -34,6 +34,7 @@ const Support = () => {
                     height={'600'}
                     placeholder="blur"
                     blurDataURL={blurImage}
+                    alt="signupbg"
                   />
                 </div>
                 <div className="px-5">

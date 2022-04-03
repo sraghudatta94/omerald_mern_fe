@@ -282,7 +282,7 @@ const UserAgreement = () => {
                 distribute, or broadcast content and materials to us or on the
                 Site, including but not limited to text, writings, video, audio,
                 photographs, graphics, comments, suggestions, or personal
-                information or other material (collectively, "Contributions").
+                information or other material (collectively, Contributions).
               </p>
               <p className="my-4 text-md">
                 Contributions may be viewable by other users of the Site and
@@ -296,7 +296,7 @@ const UserAgreement = () => {
                 performance, and the accessing, downloading, or copying of Your
                 Contributions do not and will not infringe the proprietary
                 rights, including but not limited to the copyright, patent,
-                trademark, trade secret, or moral rights of any third party. y
+                trademark, trade secret, or moral rights of any third party. 
               </p>
               <p className="my-4 text-md">
                 you are the creator and owner of or have the necessary licenses,
