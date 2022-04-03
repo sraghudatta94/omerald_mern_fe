@@ -6,9 +6,9 @@ type Props = { href: LinkProps['href'] } & Omit<
   'href'
 >;
 
-export const Links = ({ children, href, ...props }: Props) => {
+export const Links = ({ children, href }: Props) => {
   return (
-    <NextLink href={href} {...props} passHref>
+    <NextLink href={href} passHref>
       {children}
     </NextLink>
   );

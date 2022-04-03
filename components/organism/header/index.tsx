@@ -7,7 +7,7 @@ type HeaderProp = {
   addClass: Function;
 };
 
-export const Header: React.FC<HeaderProp> = ({ openSearch, addClass }) => {
+const Header: React.FC<HeaderProp> = ({ openSearch, addClass }) => {
   return (
     <header className="main-header header-style-1 font-heading">
       <div className="header-top">
@@ -22,3 +22,5 @@ export const Header: React.FC<HeaderProp> = ({ openSearch, addClass }) => {
     </header>
   );
 };
+
+export default Header;

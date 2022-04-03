@@ -1,15 +1,17 @@
-import { ArticleCard } from '@components/molecule/card';
-import { ArticleType } from '@public/static/types/topics';
 import React from 'react';
-import { PostCarousel } from '../carousel';
-import { Tags } from '../tags';
-import Link from 'next/link';
+import dynamic from 'next/dynamic';
+import { FeaturedPostType } from '@public/types';
+import { ArticleType } from '@public/static/types/topics';
 
-type Props = {
-  articles?: ArticleType[];
-};
+const Tags = dynamic(() => import('../tags/index'));
+const PostCarousel = dynamic(() => import('../carousel/index'));
+const ArticleCard = dynamic(
+  () => import('@components/molecule/card/articleCard')
+);
 
-export const FeaturedPost: React.FC<Props> = ({ articles }: any) => {
+const FeaturedPost: React.FC<FeaturedPostType> = ({
+  articles,
+}: FeaturedPostType) => {
   let articlesList: ArticleType[] = articles ? articles : [];
 
   return (
@@ -20,7 +22,7 @@ export const FeaturedPost: React.FC<Props> = ({ articles }: any) => {
           <div className="col-lg-8 mb-30">
             <PostCarousel articles={articlesList} />
           </div>
-          {articlesList.slice(36, 40).map(article => {
+          {articlesList.slice(33, 40).map(article => {
             return <ArticleCard key={article.id} {...article} />;
           })}
         </div>
@@ -28,3 +30,5 @@ export const FeaturedPost: React.FC<Props> = ({ articles }: any) => {
     </div>
   );
 };
+
+export default FeaturedPost;

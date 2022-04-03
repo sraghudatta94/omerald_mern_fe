@@ -1,10 +1,13 @@
-import Footer from '@components/organism/footer';
-import { Header } from '@components/organism/header';
-import { Search } from '@components/organism/search';
-import { Sidebar } from '@components/organism/sidebar';
 import React from 'react';
+import dynamic from 'next/dynamic';
+import { LayoutType } from '@public/types';
 
-export const Layout: React.FC<any> = ({ children, article, topic }) => {
+const Header = dynamic(() => import('@components/organism/header'));
+const Sidebar = dynamic(() => import('@components/organism/sidebar'));
+const Search = dynamic(() => import('@components/organism/search'));
+const Footer = dynamic(() => import('@components/organism/footer'));
+
+const Layout: React.FC<LayoutType> = ({ children }) => {
   const openSearch = () => {
     document.body.classList.toggle('open-search-form');
   };
@@ -23,3 +26,5 @@ export const Layout: React.FC<any> = ({ children, article, topic }) => {
     </>
   );
 };
+
+export default Layout;

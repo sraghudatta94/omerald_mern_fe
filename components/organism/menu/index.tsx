@@ -1,5 +1,5 @@
 import { MenuLinks } from '@components/molecule/menu';
-import { SocialLinks } from '@components/molecule/social';
+import SocialLinks from '@components/molecule/social';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useLayoutEffect, useState } from 'react';
@@ -26,21 +26,19 @@ const Menu: React.FC<any> = ({ addClass }: any) => {
   }, []);
 
   return (
-    <>
-      <div className={scroll ? 'header-sticky sticky-bar' : 'header-sticky'}>
-        <div className="container  align-self-center position-relative">
-          <div className="main-nav float-left w-[20px] md:w-[60vw]">
-            <MenuLinks />
-          </div>
-          <div className="float-right header-tools text-muted font-small">
-            <SocialLinks />
-            <a className=" text-red-600" onClick={addClass}>
-              <FontAwesomeIcon icon={faBars} />
-            </a>
-          </div>
+    <div className={scroll ? 'header-sticky sticky-bar' : 'header-sticky'}>
+      <div className="container  align-self-center position-relative">
+        <div className="main-nav float-left w-[20px] md:w-[60vw]">
+          <MenuLinks />
+        </div>
+        <div className="float-right header-tools text-muted font-small">
+          <SocialLinks />
+          <a className=" text-red-600" onClick={addClass}>
+            <FontAwesomeIcon icon={faBars} />
+          </a>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

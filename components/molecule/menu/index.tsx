@@ -1,6 +1,6 @@
+import React, { useLayoutEffect, useState } from 'react';
 import { Links } from '@components/atoms/link';
 import { navLinks } from 'public/static/data/links/index';
-import React, { useLayoutEffect, useState } from 'react';
 import { NavMenu } from '../nav';
 
 export const MenuLinks: React.FC = () => {
@@ -16,12 +16,12 @@ export const MenuLinks: React.FC = () => {
   }, []);
 
   return (
-    <nav className="w-[20px]  md:w-[60vw]">
-      <ul className="main-menu d-none d-lg-inline font-small ">
+    <nav className="w-[20px] md:w-[60vw]">
+      <ul className="main-menu d-none d-lg-inline font-small">
         {navLinks.map(nav => {
           return (
             <li key={nav.id}>
-              <Links href={nav.route} className="text-gray-400">
+              <Links href={nav.route}>
                 <a className="text-gray-400">{nav.title}</a>
               </Links>
             </li>
@@ -31,7 +31,7 @@ export const MenuLinks: React.FC = () => {
 
       <div
         className={
-          size < 991 ? 'd-block d-lg-none w-[20px]  md:w-[60vw]' : 'd-none'
+          size < 991 ? 'd-block d-lg-none w-[20px] md:w-[60vw]' : 'd-none'
         }
       >
         <button onClick={toggleTrueFalse}>Menu</button>

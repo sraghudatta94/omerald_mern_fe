@@ -14,24 +14,22 @@ export const NavMenu: React.FC<Props> = ({ isToggled }: Props) => {
   }, []);
 
   return (
-    <>
-      <div className={isToggled ? 'mobilemenu active p-4 ' : 'mobilemenu hide'}>
-        <PerfectScrollbar>
-          <ul className="metismenu text-muted" id="metismenu">
-            {navLinks.map(nav => {
-              return (
-                <li key={nav.id}>
-                  <Links href={nav.route}>
-                    <a className="text-gray-400 text-sm font-light">
-                      {nav.title}
-                    </a>
-                  </Links>
-                </li>
-              );
-            })}
-          </ul>
-        </PerfectScrollbar>
-      </div>
-    </>
+    <div className={isToggled ? 'mobilemenu active p-4 ' : 'mobilemenu hide'}>
+      <PerfectScrollbar>
+        <ul className="metismenu text-muted" id="metismenu">
+          {navLinks.map(nav => {
+            return (
+              <li key={nav.id}>
+                <Links href={nav.route}>
+                  <a className="text-gray-400 text-sm font-light">
+                    {nav.title}
+                  </a>
+                </Links>
+              </li>
+            );
+          })}
+        </ul>
+      </PerfectScrollbar>
+    </div>
   );
 };

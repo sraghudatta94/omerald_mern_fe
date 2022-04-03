@@ -1,12 +1,15 @@
-import { Links } from '@components/atoms/link';
-import { TopicType } from '@public/static/types/topics';
 import React from 'react';
+import dynamic from 'next/dynamic';
+import { TopicType } from '@public/static/types/topics';
 import { useSelector } from 'react-redux';
 
-export const Trending: React.FC = () => {
+const TopicListInline = dynamic(() => import('@components/molecule/link'));
+
+const TrendingTopics: React.FC = () => {
   let redux = useSelector((state: any) => state);
-  let topics: Array<TopicType> = redux.topics.data;
-  let topicsList: TopicType[] = topics ? topics.slice(0, 4) : [];
+  let topicsList: TopicType[] = redux.topics.data
+    ? redux.topics.data.slice(0, 4)
+    : [];
 
   return (
     <div className="row mt-80 text-center">
@@ -15,17 +18,11 @@ export const Trending: React.FC = () => {
           <strong>Suggested keywords:</strong>
         </h5>
         <ul className="list-inline d-inline-block">
-          {topicsList.map(topic => {
-            return (
-              <li key={topic.id} className="list-inline-item">
-                <Links href={'/'}>
-                  <a>{topic.title}</a>
-                </Links>
-              </li>
-            );
-          })}
+          <TopicListInline topicsList={topicsList} />
         </ul>
       </div>
     </div>
   );
 };
+
+export default TrendingTopics;

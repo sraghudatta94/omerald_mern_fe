@@ -1,11 +1,9 @@
 import { Button } from '@components/atoms/button';
 import { Links } from '@components/atoms/link';
-import Logo from '@components/atoms/logo';
+import { HeaderProp } from '@public/types';
+import dynamic from 'next/dynamic';
 import React from 'react';
-
-type HeaderProp = {
-  openSearch: Function;
-};
+const Logo = dynamic(() => import('@components/atoms/logo'));
 
 export const RightHeader: React.FC<HeaderProp> = ({ openSearch }: any) => {
   return (
@@ -16,11 +14,12 @@ export const RightHeader: React.FC<HeaderProp> = ({ openSearch }: any) => {
           Search
         </span>
       </Button>
-      <Links href="/register">
-        <Button className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow">
-          Register
-        </Button>
-      </Links>
+
+      <Button className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow">
+        <Links href="/register">
+          <a className="text-white">Register</a>
+        </Links>
+      </Button>
     </div>
   );
 };

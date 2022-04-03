@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import React from 'react';
 import { Links } from '@components/atoms/link';
 import { ArticleType } from '@public/static/types/topics';
 import { articleImagePath } from '@public/static/api';
+import Image from 'next/image';
+import React from 'react';
 
-export const PostImage: React.FC<ArticleType> = ({ image }) => {
+const PostImage: React.FC<ArticleType> = ({ image }) => {
   return (
     <div className="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
       <Links href="/">
@@ -15,9 +15,13 @@ export const PostImage: React.FC<ArticleType> = ({ image }) => {
             className="rounded border-2"
             src={articleImagePath + image}
             alt="postImage"
+            blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
+            placeholder="blur"
           />
         </a>
       </Links>
     </div>
   );
 };
+
+export default PostImage;

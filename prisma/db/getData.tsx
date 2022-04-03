@@ -15,6 +15,7 @@ export async function articles() {
         short_description: true,
         description: true,
         health_topics: true,
+        writer_id: true,
       },
     });
 
@@ -37,6 +38,7 @@ export async function authors() {
     return err;
   }
 }
+
 export async function topics() {
   try {
     const topicsList = await prisma.health_topics.findMany({
@@ -52,6 +54,21 @@ export async function topics() {
     });
 
     return JSON.parse(JSON.stringify(topicsList));
+  } catch (err) {
+    return err;
+  }
+}
+
+export async function users() {
+  try {
+    const usersList = await prisma.users.findMany({
+      select: {
+        id: true,
+        name: true,
+      },
+    });
+
+    return JSON.parse(JSON.stringify(usersList));
   } catch (err) {
     return err;
   }

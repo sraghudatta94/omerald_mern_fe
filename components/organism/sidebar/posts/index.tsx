@@ -1,13 +1,16 @@
 import { ArticleType } from '@public/static/types/topics';
-import React from 'react';
 import { useSelector } from 'react-redux';
-import { PostContent } from './postContent';
-import { PostImage } from './postImage';
+import React from 'react';
+import dynamic from 'next/dynamic';
 
-export const Posts = () => {
+const PostContent = dynamic(() => import('./postContent/index'));
+const PostImage = dynamic(() => import('./postImage/index'));
+
+const Posts = () => {
   let redux = useSelector((state: any) => state);
-  let article: Array<ArticleType> = redux.article.data;
-  let articlesList: ArticleType[] = article ? article.slice(0, 4) : [];
+  let articlesList: ArticleType[] = redux.article.data
+    ? redux.article.data.slice(0, 4)
+    : [];
 
   return (
     <div className="sidebar-widget widget-latest-posts mb-50">
@@ -31,3 +34,5 @@ export const Posts = () => {
     </div>
   );
 };
+
+export default Posts;

@@ -1,12 +1,15 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { CarouselImage } from '@components/molecule/carousel';
 import { ArticleType } from '@public/static/types/topics';
+import dynamic from 'next/dynamic';
+
+const CarouselImage = dynamic(() => import('@components/molecule/carousel'));
 
 type Props = {
   articles?: ArticleType[];
 };
-export const PostCarousel: React.FC<Props> = ({ articles }: Props) => {
+
+const PostCarousel: React.FC<Props> = ({ articles }: Props) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -30,3 +33,5 @@ export const PostCarousel: React.FC<Props> = ({ articles }: Props) => {
     </div>
   );
 };
+
+export default PostCarousel;
