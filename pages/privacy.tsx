@@ -5,7 +5,7 @@ import React from 'react';
 const Privacy = () => {
   return (
     <Layout>
-      <MetaData title={Privacy} content={'Our privacy policy'} />
+      <MetaData title={'Privacy'} content={'Our privacy policy'} />
       ds
       <main className="body">
         <div className="w-[95vw] md:w-[65vw] m-auto">

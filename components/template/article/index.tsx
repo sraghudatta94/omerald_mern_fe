@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import debounce from 'lodash.debounce';
 import ArticleMetaTag from '@public/static/metaData/articleMeta';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Filter from '@components/molecule/filter';
 
 const Layout = dynamic(() => import('@components/common'));
 
@@ -49,6 +50,7 @@ const ArticleTemplate = () => {
           <div className="archive-header my-[10vh] ">
             <div className="container flex justify-between">
               <h2 className="font-weight-900 ">Article</h2>
+              <Filter />
               <SearchFilter
                 onSubmit={() => {}}
                 onChange={debouncedChangeHandler}
