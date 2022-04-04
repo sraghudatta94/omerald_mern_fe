@@ -8,7 +8,7 @@ const Privacy = () => {
       <MetaData title={'Privacy'} content={'Our privacy policy'} />
       ds
       <main className="body">
-        <div className="w-[95vw] md:w-[65vw] m-auto">
+        <div className="w-[95vw]  m-auto">
           <div className="archive-header mt-[10vh] ">
             <div className="container text-left">
               <h3 className="text-3xl font-bold">Privacy policy</h3>

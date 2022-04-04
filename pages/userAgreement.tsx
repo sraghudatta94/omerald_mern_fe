@@ -9,7 +9,7 @@ const UserAgreement = () => {
     <Layout>
       <MetaData title={'User Agreement'} content={'Read our user policies'} />
       <main className="body">
-        <div className="w-[95vw] md:w-[65vw] m-auto">
+        <div className="w-[95vw]  m-auto">
           <div className="archive-header mt-[10vh] ">
             <div className="container text-left">
               <h3 className="text-3xl font-bold">User Agreement</h3>
@@ -296,7 +296,7 @@ const UserAgreement = () => {
                 performance, and the accessing, downloading, or copying of Your
                 Contributions do not and will not infringe the proprietary
                 rights, including but not limited to the copyright, patent,
-                trademark, trade secret, or moral rights of any third party. 
+                trademark, trade secret, or moral rights of any third party.
               </p>
               <p className="my-4 text-md">
                 you are the creator and owner of or have the necessary licenses,

@@ -17,6 +17,16 @@ a {
 * {
   box-sizing: border-box;
 }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: white;
+}
+::-webkit-scrollbar-thumb {
+  background: grey;
+}
 
 @tailwind base;
 @tailwind components;
