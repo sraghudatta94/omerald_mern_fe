@@ -26,7 +26,7 @@ const Login = ({ article, author, topic }) => {
     <Layout>
       <main className="bg-grey pt-80 pb-50">
         <div className="container">
-          <div className="login_wrap widget-taber-content w-[40vw] m-auto  p-30 h-[45vh]  bg-white border-radius-10">
+          <div className="login_wrap widget-taber-content w-[40vw] m-auto  p-30 h-[35vh]  bg-white border-radius-10">
             <div className="padding_eight_all bg-white">
               <div className="heading_s1 text-center">
                 <h3 className="mb-30 text-2xl  font-weight-9900">

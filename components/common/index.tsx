@@ -21,7 +21,7 @@ const Layout: React.FC<LayoutType> = ({ children }) => {
       <Sidebar />
       <Header openSearch={openSearch} addClass={addClass} />
       <Search openSearch={openSearch} />
-      {children}
+      <main className="d-block">{children}</main>
       <Footer />
     </>
   );

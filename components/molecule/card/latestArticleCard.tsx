@@ -26,7 +26,7 @@ const LatestCard: React.FC<ArticleType> = ({
           <div className="col-md-4">
             <div className="post-thumb position-relative border-radius-5">
               <div className="img-hover-slide border-radius-5 position-relative">
-                <Link href={`article/${title}`}>
+                <Link href={`article/post/${title}`}>
                   <a className="img-link">
                     <Image
                       alt="articleImage"
@@ -64,7 +64,7 @@ const LatestCard: React.FC<ArticleType> = ({
                 </Link>
               </div>
               <h5 className="post-title font-weight-900 mb-20">
-                <Link href={`article/${title}`}>
+                <Link href={`article/post/${title}`}>
                   <a>{title}</a>
                 </Link>
                 <span className="post-format-icon">

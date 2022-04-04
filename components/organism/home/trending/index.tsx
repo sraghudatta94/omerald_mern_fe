@@ -57,7 +57,11 @@ const Trending: React.FC = (): ReactElement => {
                 })}
               </div>
             </div>
-            <Pagination />
+            <Link href="/article">
+              <a>
+                <button className="btn bg-blue-600 text-white">See More</button>
+              </a>
+            </Link>
           </div>
           <div className="col-lg-4">
             <div className="widget-area">
@@ -94,19 +98,17 @@ const Trending: React.FC = (): ReactElement => {
                     {articlesList.slice(25, 29).map(article => {
                       return (
                         <li key={article.id}>
-                          <Link href="/">
-                            <a href="#">
-                              <Image
-                                className="border-radius-5"
-                                src={articleImagePath + article.image}
-                                alt="images"
-                                width="80"
-                                height="80"
-                                placeholder="blur"
-                                blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
-                              />
-                            </a>
-                          </Link>
+                          <a href="/https://in.pinterest.com/mednologies/_created/">
+                            <Image
+                              className="border-radius-5"
+                              src={articleImagePath + article.image}
+                              alt="images"
+                              width="80"
+                              height="80"
+                              placeholder="blur"
+                              blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
+                            />
+                          </a>  
                         </li>
                       );
                     })}

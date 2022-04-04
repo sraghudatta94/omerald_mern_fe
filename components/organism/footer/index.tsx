@@ -44,29 +44,29 @@ const Footer: FC = () => {
               </div>
               <ul className="font-small">
                 <li className="cat-item cat-item-2">
-                  <Link href="/#">
+                  <Link href="/about">
                     <a>About Us</a>
                   </Link>
                 </li>
                 <li className="cat-item cat-item-4">
-                  <Link href="/#">
+                  <Link href="/support">
                     <a>Help & Support</a>
                   </Link>
                 </li>
 
                 <li className="cat-item cat-item-6">
-                  <Link href="/#">
+                  <Link href="/privacy">
                     <a>Privacy Policy</a>
                   </Link>
                 </li>
 
                 <li className="cat-item cat-item-7">
-                  <Link href="/#">
+                  <Link href="/userAgreement">
                     <a>User Agreement</a>
                   </Link>
                 </li>
                 <li className="cat-item cat-item-5">
-                  <Link href="/#">
+                  <Link href="/faq">
                     <a>FAQ</a>
                   </Link>
                 </li>
