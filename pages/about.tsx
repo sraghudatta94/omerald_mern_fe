@@ -1,5 +1,7 @@
+import { SocialIcons } from '@components/atoms/icons';
 import Logo from '@components/atoms/logo';
 import Layout from '@components/common';
+import SocialLinks from '@components/molecule/social';
 import MetaData from '@public/static/metaData/metaTag';
 import React from 'react';
 
@@ -9,7 +11,7 @@ const About = () => {
       <MetaData title={'About'} content={'About omerald.com'} />
 
       <main className="body">
-        <div className="w-[95vw] md:w-[65vw] m-auto">
+        <div className="w-[95vw] min-h-[40vh] m-auto">
           <div className="archive-header mt-[10vh] ">
             <div className="container text-left">
               <h3 className="text-3xl font-bold">About</h3>
@@ -21,46 +23,36 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="container">
+          <div className="container ">
             <div className="faq-content my-10">
-              <Logo />
               <p className="text-md">
                 We are a growing platform, motivated to Create a Sustainable,
                 Upgrading & Updating medical system everyday.
               </p>
               <p className="text-md my-2">
-                A Medical Ecosystem to bring back glorious Indian Medical System
-                along with all other proven medical systems all around the world
-                to bring best medical care to Indians belonging to various walks
-                of life.
+                A Medical Ecosystem to restore the glorious Indian Medical
+                System, as well as all other proven medical systems from around
+                the world, in order to provide the best medical care to Indians
+                from all walks of life.
               </p>
-              <p>You can follow us here for more updates:</p>
-              <ol className="my-4 list-disc">
-                <li className="text-gray-400">
-                  <a href="https://www.instagram.com/omeraldsocial/">
-                    Instagram
-                  </a>
+              <p className="text-md my-2">
+                The platform enables medical specialists to share their
+                experience through blogs in order to assist our readers who are
+                looking for information on any health topic or issue.
+              </p>
+              <p className="text-md my-2">Some of our products and services</p>
+              <ul>
+                <li className="list-disc ml-3">Health Blogs</li>
+                <li className="list-disc ml-3">Doctor Consultation</li>
+                <li className="list-disc ml-3">Medical report management</li>
+                <li className="list-disc ml-3">
+                  Personalized health management and analysis
                 </li>
-                <li className="text-gray-400">
-                  <a href="https://twitter.com/OmeraldAvin">Twitter</a>
-                </li>
-                <li className="text-gray-400">
-                  <a href="https://pin.it/5LdLlQH">Pinterest</a>
-                </li>
-              </ol>
-              {/* <p>
-                We serve our users with, articles on health and wellbeing, and
-                connecting individuals to medical experts for advice and
-                guidance You can be part of the omerald ecosystem, by signing in
-                using your contact and choosing to join as doctor or user Some
-                of the services we offer are
-                <ul className="my-2 pl-3 text-gray-400">
-                  <li className="list-disc">Health Blogs by experts</li>
-                  <li className="list-disc">Share medical reports</li>
-                  <li className="list-disc">Doctor consultation</li>
-                  <li className="list-disc">Managing your medical reports</li>
-                </ul>
-              </p> */}
+              </ul>
+              <p className="text-md my-4">
+                You can follow us here for more updates
+              </p>
+              <SocialLinks />
             </div>
           </div>
         </div>

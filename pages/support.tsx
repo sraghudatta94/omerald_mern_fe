@@ -12,7 +12,7 @@ const Support = () => {
         content={'Contact us or send us your query for help'}
       />
       <main className="body">
-        <div className="w-[95vw] md:w-[65vw] m-auto">
+        <div className="w-[95vw]  m-auto">
           <div className="archive-header mt-[10vh] ">
             <div className="container text-left">
               <h3 className="text-3xl font-bold">Help and Support</h3>
@@ -26,7 +26,7 @@ const Support = () => {
           </div>
           <div className="container">
             <div className="faq-content my-10">
-              <div className="row w-[60vw] h-[60vh]  grid grid-cols-2">
+              <div className="row w-[9  0vw] h-[60vh]  grid grid-cols-2">
                 <div>
                   <Image
                     src="https://res.cloudinary.com/raghu369/image/upload/v1649023022/Omerald/assets/contact_d8cew9.webp"
