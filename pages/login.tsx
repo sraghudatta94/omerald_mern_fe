@@ -6,6 +6,7 @@ import authorActionCreator from 'redux/actions/author';
 import topicActionCreator from 'redux/actions/topics';
 import dynamic from 'next/dynamic';
 import React from 'react';
+import { articles, authors, topics } from 'prisma/db/getData';
 
 const Layout = dynamic(() => import('@components/common'));
 
@@ -68,3 +69,17 @@ const Login = ({ article, author, topic }) => {
 };
 
 export default Login;
+
+export async function getStaticProps() {
+  const article = await articles();
+  const author = await authors();
+  const topic = await topics();
+
+  return {
+    props: {
+      article,
+      author,
+      topic,
+    },
+  };
+}

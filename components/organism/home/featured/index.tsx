@@ -19,12 +19,18 @@ const FeaturedPost: React.FC<FeaturedPostType> = ({
       <Tags />
       <div className="loop-grid mb-30">
         <div className="row">
-          <div className="col-lg-8 mb-30">
-            <PostCarousel articles={articlesList} />
-          </div>
-          {articlesList.slice(33, 40).map(article => {
-            return <ArticleCard key={article.id} {...article} />;
-          })}
+          <article
+            className="grid grid-cols-3 gap-5 mb-30 wow fadeInUp animated"
+            data-wow-delay="0.1s"
+          >
+            <div className="col-span-2 mb-30">
+              <PostCarousel articles={articlesList} />
+            </div>
+
+            {articlesList.slice(33, 40).map(article => {
+              return <ArticleCard key={article.id} {...article} />;
+            })}
+          </article>
         </div>
       </div>
     </div>

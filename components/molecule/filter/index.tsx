@@ -1,11 +1,21 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react';
-import { Menu, Transition } from '@headlessui/react';
+import Multiselect from 'multiselect-react-dropdown';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+const Filter = ({ filterList, onSelect, onRemove }) => {
+  let options = filterList.map(filter => {
+    return { name: filter.title, id: filter.id };
+  });
+  options.unshift({ name: 'Select All', id: 1 });
 
-export default function Filter() {
-  return <div></div>;
-}
+  return (
+    <Multiselect
+      options={options} // Options to display in the dropdown
+      selectedValues={[]} // Preselected value to persist in dropdown
+      onSelect={onSelect} // Function will trigger on select event
+      onRemove={onRemove} // Function will trigger on remove event
+      displayValue="name" // Property name to display in the dropdown options
+      placeholder="Filter by Category"
+      className="max-w-[50vw]"
+    />
+  );
+};
+export default Filter;
