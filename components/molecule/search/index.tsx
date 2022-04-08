@@ -1,14 +1,18 @@
 import React from 'react';
 
-export const SearchFilter: React.FC<any> = ({ onSubmit, onChange }: any) => {
+export const SearchFilter: React.FC<any> = ({
+  onSubmit,
+  onChange,
+  ...props
+}: any) => {
   return (
-    <form onSubmit={onSubmit}>
-      <i className="elegant-icon icon_search mr-5 text-lg"></i>
+    <form onSubmit={onSubmit} {...props}>
+      <i className="elegant-icon icon_search  text-lg"></i>
       <input
         placeholder="Search Articles"
         type="text"
         onChange={e => onChange(e)}
-        className=" border-bottom text-xl px-4"
+        className=" border-bottom text-xl px-1"
       ></input>
     </form>
   );

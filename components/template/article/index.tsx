@@ -6,6 +6,7 @@ import debounce from 'lodash.debounce';
 import ArticleMetaTag from '@public/static/metaData/articleMeta';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Filter from '@components/molecule/filter';
+import Link from 'next/link';
 
 const Layout = dynamic(() => import('@components/common'));
 
@@ -16,8 +17,8 @@ const ArticleCard = dynamic(
 const ArticleTemplate = () => {
   let redux = useSelector((state: any) => state);
   let articleList = redux.article.data ? redux.article.data : [];
-  let [filteredList, setFilteredList] = useState(articleList.slice(0, 3));
-  let [lastPosition, setLastPosition] = useState(0);
+  let topicList = redux.topics.data ? redux.topics.data : [];
+  let [filteredList, setFilteredList] = useState(articleList.slice(0, 4));
   let [hasMore, setHasMore] = useState(true);
   const perPage = 3;
 
@@ -42,36 +43,76 @@ const ArticleTemplate = () => {
 
   const debouncedChangeHandler = useCallback(debounce(onChange, 300), []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const onSelect = (selectedList, selectedItem) => {
+    let values = selectedList.map(select => {
+      return select.id;
+    });
+
+    setFilteredList(
+      articleList.filter(article => {
+        return values.some(value =>
+          article.health_topics.split(',').includes(value)
+        );
+      })
+    );
+
+    if (selectedList.length < 1) {
+      setFilteredList(articleList);
+    }
+  };
+
   return (
     <Layout>
       <ArticleMetaTag />
       <main className="body">
-        <div className="w-[95vw] md:w-[65vw] m-auto">
+        <div className="w-[95vw] m-auto">
           <div className="archive-header my-[10vh] ">
-            <div className="container flex justify-between">
-              <h2 className="font-weight-900 ">Article</h2>
-              <Filter />
-              <SearchFilter
-                onSubmit={() => {}}
-                onChange={debouncedChangeHandler}
-              />
+            <div className="container">
+              <div className="breadcrumb flex justify-between  mb-30">
+                <section>
+                  <h2 className="font-weight-900">Article</h2>
+                  <Link href="/">
+                    <a>Articles</a>
+                  </Link>
+                  <span></span> All
+                </section>
+                <div className="px-4 flex">
+                  <Filter
+                    filterList={topicList}
+                    onSelect={onSelect}
+                    onRemove={onSelect}
+                  />
+                  <SearchFilter
+                    onSubmit={() => {}}
+                    onChange={debouncedChangeHandler}
+                    className="ml-4"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="container">
-            <InfiniteScroll
-              dataLength={filteredList.length} //This is important field to render the next data
-              next={moreData}
-              hasMore={hasMore}
-              className={'overflow-x'}
-              loader={<h4>Loading...</h4>}
-              endMessage={<p>All Articles displayed</p>}
-            >
-              <div className="row">
-                {filteredList.map((article, index) => (
-                  <ArticleCard {...article} key={article.id} />
-                ))}
-              </div>
-            </InfiniteScroll>
+
+          <div className="container gap-2 px-4">
+            <div>
+              <InfiniteScroll
+                dataLength={filteredList.length}
+                next={moreData}
+                hasMore={hasMore}
+                className={'overflow-x'}
+                loader={<h4>Loading...</h4>}
+              >
+                <div className="row ">
+                  <article
+                    className="grid grid-cols-4 gap-5 mb-30 wow fadeInUp animated"
+                    data-wow-delay="0.1s"
+                  >
+                    {filteredList.map((article, index) => (
+                      <ArticleCard {...article} key={article.id} />
+                    ))}
+                  </article>
+                </div>
+              </InfiniteScroll>
+            </div>
           </div>
         </div>
       </main>
