@@ -9,6 +9,8 @@ const baseUrl = 'https://omerald-mern-fe.vercel.app/';
 export const articleImagePath =
   'http://omerald.com/public/uploads/articleimages/';
 export const topicImagePath = 'http://omerald.com/public/uploads/htimages/';
+export const bannerImagePath =
+  'http://omerald.com/public/uploads/bannerimages/';
 
 export const getArticle = `${baseUrl}/api/articles`;
 export const getAuthors = `${baseUrl}/api/authors`;

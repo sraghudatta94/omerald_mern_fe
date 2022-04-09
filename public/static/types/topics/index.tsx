@@ -28,3 +28,10 @@ export type UserType = {
   id: number;
   name: string;
 };
+
+export type BannerType = {
+  id: number;
+  article_id: string;
+  description: string;
+  image: string;
+};

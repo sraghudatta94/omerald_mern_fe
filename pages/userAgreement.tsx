@@ -2,7 +2,7 @@ import MetaData from '@public/static/metaData/metaTag';
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-const Layout = dynamic(() => import('components/common'));
+const Layout = dynamic(() => import('@components/common'));
 
 const UserAgreement = () => {
   return (

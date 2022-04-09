@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-const Layout = dynamic(() => import('components/common'));
+const Layout = dynamic(() => import('@components/common'));
 
 const Topics = ({ article, author, topic }) => {
   const dispatch = useDispatch();

@@ -5,8 +5,6 @@ import { useRouter } from 'next/router';
 import { TopicType, UserType } from '@public/static/types/topics';
 import { PostTitle } from '@components/atoms/typography';
 import SingleArticleMetaTag from '@public/static/metaData/singleArticleMeta';
-import Link from 'next/link';
-import Image from 'next/image';
 import ArticleSideBar from '@components/molecule/post/sidePost';
 
 const PostBottom = dynamic(() => import('@components/molecule/post/bottom'));

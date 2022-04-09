@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export async function articles() {
   try {
     const article = await prisma.articles.findMany({
-      take: 40,
+      take: 100,
       select: {
         id: true,
         title: true,
@@ -69,6 +69,23 @@ export async function users() {
     });
 
     return JSON.parse(JSON.stringify(usersList));
+  } catch (err) {
+    return err;
+  }
+}
+
+export async function banners() {
+  try {
+    const bannersList = await prisma.banners.findMany({
+      select: {
+        id: true,
+        article_id: true,
+        description: true,
+        image: true,
+      },
+    });
+
+    return JSON.parse(JSON.stringify(bannersList));
   } catch (err) {
     return err;
   }
