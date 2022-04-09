@@ -19,11 +19,11 @@ const HomeTemplate: React.FC = () => {
     <Layout>
       <HomeMetaTags />
       <main>
-        <HomeBanner />
+        {/* <HomeBanner />
         <FeaturedPost articles={article} />
-        <Trending />
+        <Trending /> */}
       </main>
-    </Layout> 
+    </Layout>
   );
 };
 

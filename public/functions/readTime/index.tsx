@@ -1,3 +1,4 @@
+import { searchByParams } from '@public/static/api';
 import { TopicType } from '@public/static/types/topics';
 import readingTime from 'reading-time';
 
@@ -61,4 +62,16 @@ export const getAllArticleTopics = (
   });
 
   return topicsArticle;
+};
+
+export const searchByParam = async value => {
+  if (!['', ' ', '  ', '   ', '     '].includes(value)) {
+    const resp = await fetch(searchByParams, {
+      headers: {
+        Content_Type: 'application.json',
+        title: value,
+      },
+    });
+    return resp.json();
+  }
 };

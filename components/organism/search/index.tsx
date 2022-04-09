@@ -1,17 +1,43 @@
-import React, { FC } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
+import debounce from 'lodash.debounce';
+import Loader from '@components/common/loader';
+import SearchedArticle from './articles/index';
 import { SearchedArticlesType } from '@public/types';
+import { searchByParam } from '@public/functions/readTime';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const TrendingTopics = dynamic(() => import('./trending/index'));
-const SearchedArticles = dynamic(() => import('./articles/index'));
 
-const Search: FC<SearchedArticlesType> = ({
-  openSearch,
-}: SearchedArticlesType) => {
+const Search: React.FC<SearchedArticlesType> = () => {
+  const [searchedArticles, setSearchedItems] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      let x = await searchByParam('Covid');
+      setSearchedItems(x);
+    })();
+  }, []);
+
+  const handleSearch = e => {
+    if (e.target.value === '') {
+      (async () => {
+        let x = await searchByParam('Covid');
+        setSearchedItems(x);
+      })();
+    }
+    (async () => {
+      let x = await searchByParam(e.target.value);
+      setSearchedItems(x);
+    })();
+  };
+
+  const debouncedChangeHandler = useCallback(debounce(handleSearch, 500), []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
-    <div className="main-search-form z-9">
-      <div className="container">
-        <div className=" pt-50 pb-50 ">
+    <div className="main-search-form z-9  overflow-auto !important">
+      <div className="container ">
+        <div className=" pt-50 pb-50 mb-[5vh]">
           <div className="row mb-20">
             <div className="col-12 align-self-center main-search-form-cover m-auto">
               <p className="text-center">
@@ -22,7 +48,10 @@ const Search: FC<SearchedArticlesType> = ({
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Search author, articles, topics"
+                    placeholder="Search articles or topics"
+                    onChange={e => {
+                      debouncedChangeHandler(e);
+                    }}
                   />
                   <div className="input-group-append">
                     <button className="btn btn-search bg-white" type="submit">
@@ -34,7 +63,11 @@ const Search: FC<SearchedArticlesType> = ({
             </div>
           </div>
           <TrendingTopics />
-          <SearchedArticles openSearch={openSearch} />
+          {!searchedArticles ? (
+            <Loader />
+          ) : (
+            <SearchedArticle articlesList={searchedArticles} />
+          )}
         </div>
       </div>
     </div>

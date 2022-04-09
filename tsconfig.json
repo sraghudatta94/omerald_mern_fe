@@ -33,6 +33,6 @@
     "pages/api/article/getArticle.js",
     "pages/api/users/getUsers.js",
     "prisma/db/getData.tsx"
-  ],
+, "pages/api/search/getByTitle.js"  ],
   "exclude": ["node_modules"]
 }
