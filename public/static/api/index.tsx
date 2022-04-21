@@ -12,7 +12,7 @@ export const topicImagePath = 'http://omerald.com/public/uploads/htimages/';
 export const bannerImagePath =
   'http://omerald.com/public/uploads/bannerimages/';
 
-export const getSearchItems = `${baseUrl}/api/search/getSearchArticles`;
+export const searchedItems = `${baseUrl}/api/search/getSearchArticles`;
 export const searchByParams = `${baseUrl}/api/search/getByTitle`;
 export const getArticle = `${baseUrl}/api/articles`;
 export const getAuthors = `${baseUrl}/api/authors`;

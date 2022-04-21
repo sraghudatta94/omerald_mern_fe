@@ -1,17 +1,18 @@
 import React from 'react';
 import Image from 'next/image';
 import filterListActionCreator from 'redux/actions/filterList';
-import { bannerImagePath } from '@public/static/api';
-import { BannerType } from '@public/static/types/topics';
+import { articleImagePath, bannerImagePath } from '@public/static/api';
+import { ArticleType, BannerType } from '@public/static/types/topics';
 import { useDispatch } from 'react-redux';
 import Router, { withRouter } from 'next/router';
 import Link from 'next/link';
 
-const CarouselImage: React.FC<BannerType> = ({
-  image,
+const CarouselImage: React.FC<ArticleType> = ({
+  title,
   id,
-  description,
-}: BannerType) => {
+  image,
+  short_description,
+}: ArticleType) => {
   const dispatch = useDispatch();
 
   // const showFilteredArticles = async (articleId: number) => {
@@ -36,16 +37,22 @@ const CarouselImage: React.FC<BannerType> = ({
             <div className="img-link">
               <Image
                 alt="articleImage"
-                src={bannerImagePath + image}
+                src={articleImagePath + image}
                 objectFit="cover"
-                layout="responsive"
-                width="500"
-                height={'400'}
+                layout="fill"
                 placeholder="blur"
                 blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
               />
-              <div className="post-content-overlay text-black text-xl text-bold italic ml-30 mr-30 pb-30">
-                <p>{description}</p>
+              <div className="post-content-overlay text-white bg-gray-800 opacity-35 w-[100%] text-2xl text-bold italic p-20">
+                <Link href={`/article/post/${title}`}>
+                  <a>
+                    <p>{title}</p>
+                  </a>
+                </Link>
+
+                <p className="text-sm font-light text-white max-h-[4vh] max-w-[85%] overflow-hidden">
+                  {short_description}
+                </p>
               </div>
             </div>
           </a>

@@ -3,25 +3,18 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
-
   try {
-    const article = await prisma.articles.findMany({
+    const policy = await prisma.settings.findMany({
+      take: 40,
       select: {
         id: true,
-        title: true,
-        image: true,
-        created_at: true,
-        updated_by: true,
-        short_description: true,
-      },
-      where: {
-        title: {
-          contains: req.body.searchText,
-        },
+        s_name: true,
+        s_key: true,
+        s_value: true,
       },
     });
 
-    res.status(200).json(JSON.stringify(article));
+    res.status(200).json(JSON.stringify(policy));
   } catch (err) {
     res.status(400).json('Error fetching data', err);
   }

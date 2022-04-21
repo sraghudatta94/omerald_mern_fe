@@ -1,16 +1,15 @@
 import { ArticleType } from '@public/static/types/topics';
-import { useSelector } from 'react-redux';
 import React from 'react';
 import dynamic from 'next/dynamic';
+import { useFetch } from 'hooks/useFetch';
+import { getArticle } from '@public/static/api';
 
 const PostContent = dynamic(() => import('./postContent/index'));
 const PostImage = dynamic(() => import('./postImage/index'));
 
 const Posts = () => {
-  let redux = useSelector((state: any) => state);
-  let articlesList: ArticleType[] = redux.article.data
-    ? redux.article.data.slice(0, 4)
-    : [];
+  let { apiData } = useFetch(getArticle);
+  let articlesList: ArticleType[] = apiData ? apiData.slice(0, 4) : [];
 
   return (
     <div className="sidebar-widget widget-latest-posts mb-50">

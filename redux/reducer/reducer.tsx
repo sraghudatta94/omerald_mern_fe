@@ -13,6 +13,7 @@ const reducer = combineReducers({
   users: userReducer,
   banners: bannerReducer,
   filterList: filterListReducer,
+
 });
 
 export default reducer;

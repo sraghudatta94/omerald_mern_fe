@@ -9,13 +9,13 @@ import {
   TopicType,
   UserType,
 } from '@public/static/types/topics';
+import bannerActionCreator from 'redux/actions/banners';
 import articleActionCreator from 'redux/actions/article';
 import authorActionCreator from 'redux/actions/author';
 import topicActionCreator from 'redux/actions/topics';
 import userActionCreator from 'redux/actions/users';
 import dynamic from 'next/dynamic';
 import React from 'react';
-import bannerActionCreator from 'redux/actions/banners';
 
 const HomeTemplate = dynamic(() => import('@components/template/home/index'));
 
@@ -46,7 +46,6 @@ export async function getStaticProps() {
   const author: AuthorType[] = await authors();
   const topic: TopicType[] = await topics();
   const user: UserType[] = await users();
-  const banner: BannerType[] = await banners();
 
   return {
     props: {
@@ -54,7 +53,6 @@ export async function getStaticProps() {
       author,
       topic,
       user,
-      banner,
     },
   };
 }

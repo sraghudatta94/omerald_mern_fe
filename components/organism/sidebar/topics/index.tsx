@@ -1,15 +1,12 @@
 import { Links } from '@components/atoms/link';
 import { TopicType } from '@public/static/types/topics';
-import { useSelector } from 'react-redux';
-import { TopicsListType } from '@public/types';
 import React, { FC } from 'react';
+import { getTopics } from '@public/static/api';
+import { useFetch } from 'hooks/useFetch';
 
 const TopicsList: FC = () => {
-  let redux = useSelector((state: any) => state);
-
-  let topicsList: TopicType[] = redux.topics.data
-    ? redux.topics.data.slice(0, 5)
-    : [];
+  let { apiData } = useFetch(getTopics);
+  let topicsList: TopicType[] = apiData ? apiData.slice(0, 5) : [];
 
   return (
     <div className="sidebar-widget widget_categories mb-50 mt-30">

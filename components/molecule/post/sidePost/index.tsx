@@ -9,7 +9,7 @@ import AuthorProfile from './authorProfile';
 import SimilarTopics from './similarTopics';
 
 const ArticleSideBar: FC<ArticleType> = ({ writer_Id, health_topics }: any) => {
-  console.log(health_topics);
+
   return (
     <div className="widget-area">
       <AuthorProfile writer_Id={writer_Id} />

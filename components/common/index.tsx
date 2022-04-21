@@ -22,7 +22,7 @@ const Layout: React.FC<LayoutType> = ({ children }) => {
       <Header openSearch={openSearch} addClass={addClass} />
       <Search openSearch={openSearch} />
       <main className="d-block">{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

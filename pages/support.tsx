@@ -2,9 +2,11 @@ import Layout from '@components/common';
 import { blurImage } from '@public/assets/imgs/blur';
 import MetaData from '@public/static/metaData/metaTag';
 import Image from 'next/image';
+import { policy } from 'prisma/db/getData';
 import React from 'react';
 
 const Support = () => {
+
   return (
     <Layout>
       <MetaData
@@ -87,3 +89,4 @@ const Support = () => {
 };
 
 export default Support;
+

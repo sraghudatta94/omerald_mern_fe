@@ -11,6 +11,7 @@ import {
 } from '@public/functions/readTime';
 import { useSelector } from 'react-redux';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const SocialLinks = dynamic(() => import('../social/index'));
 
@@ -26,6 +27,7 @@ const ArticleCard: React.FC<ArticleType> = ({
   let userList: UserType[] = redux.users ? redux.users.data : [];
   let topicsList: TopicType[] = redux.topics ? redux.topics.data : [];
 
+  let Router = useRouter();
   return (
     <div className="post-card-1 border-radius-10 hover-up">
       <div className="post-thumb thumb-overlay img-hover-slide position-relative">
@@ -57,13 +59,20 @@ const ArticleCard: React.FC<ArticleType> = ({
       </div>
       <div className="post-content  p-30">
         <div className="entry-meta meta-0 font-small mb-10">
-          <Link href="/topics">
-            <a>
-              <span className="post-cat text-info">
-                {getArticleTopics(health_topics, topicsList)}
-              </span>
-            </a>
-          </Link>
+          <a
+            href="/"
+            onClick={e => {
+              e.preventDefault();
+              Router.push({
+                pathname: '/article/filter',
+                query: { data: getArticleTopics(health_topics, topicsList) },
+              });
+            }}
+          >
+            <span className="post-cat text-info">
+              {getArticleTopics(health_topics, topicsList)}
+            </span>
+          </a>
         </div>
         <div className="d-flex post-card-content">
           <h5 className="post-title mb-20 text-xl font-weight-900">

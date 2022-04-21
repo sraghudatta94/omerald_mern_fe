@@ -14,19 +14,20 @@ const ArticleTemplate = dynamic(
 const Article: React.FC<any> = ({ article, topic }) => {
   const dispatch = useDispatch();
 
-  let articleList = article ? article : [];
-  let topicList = topic ? topic : [];
-  let router = useRouter().query.slug;
-  let [filterList, setFilterList] = useState([]);
+  // let articleList = article ? article : [];
+  // let topicList = topic ? topic : [];
+  // let router = useRouter().query;
+  // console.log(router.data);
+  // let [filterList, setFilterList] = useState([]);
 
-  useEffect(() => {
-    articleActionCreator.addArticle(dispatch, articleList);
-    topicActionCreator.setTopics(dispatch, topicList);
-  });
+  // useEffect(() => {
+  //   articleActionCreator.addArticle(dispatch, articleList);
+  //   topicActionCreator.setTopics(dispatch, topicList);
+  // });
 
-  useEffect(() => {
-    filterList
-  }, [router]);
+  // useEffect(() => {
+  //   filterList;
+  // }, [router, filterList]);
 
   return <ArticleTemplate />;
 };

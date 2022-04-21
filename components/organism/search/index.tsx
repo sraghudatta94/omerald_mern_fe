@@ -4,35 +4,49 @@ import debounce from 'lodash.debounce';
 import Loader from '@components/common/loader';
 import SearchedArticle from './articles/index';
 import { SearchedArticlesType } from '@public/types';
-import { searchByParam } from '@public/functions/readTime';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import { getSearchedItems } from '@public/functions/readTime';
+import { searchedItems } from '@public/static/api';
 
 const TrendingTopics = dynamic(() => import('./trending/index'));
 
 const Search: React.FC<SearchedArticlesType> = () => {
   const [searchedArticles, setSearchedItems] = useState([]);
 
+  async function postData(url = '', data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+  }
+
   useEffect(() => {
     (async () => {
-      let x = await searchByParam('Covid');
-      setSearchedItems(x);
+      setSearchedItems(await postData(searchedItems, { searchText: 'Covid' }));
     })();
   }, []);
 
   const handleSearch = e => {
-    if (e.target.value === '') {
+    if (!['', ' ', '  ', '  '].includes(e.target.value)) {
       (async () => {
-        let x = await searchByParam('Covid');
-        setSearchedItems(x);
+        setSearchedItems(
+          await postData(searchedItems, { searchText: e.target.value })
+        );
+      })();
+    } else {
+      (async () => {
+        setSearchedItems(
+          await postData(searchedItems, { searchText: 'Diabetes' })
+        );
       })();
     }
-    (async () => {
-      let x = await searchByParam(e.target.value);
-      setSearchedItems(x);
-    })();
   };
 
-  const debouncedChangeHandler = useCallback(debounce(handleSearch, 500), []); // eslint-disable-line react-hooks/exhaustive-deps
+  const debouncedChangeHandler = useCallback(debounce(handleSearch, 600), []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="main-search-form z-9  overflow-auto !important">
