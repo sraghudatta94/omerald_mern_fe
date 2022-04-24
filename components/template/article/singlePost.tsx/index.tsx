@@ -57,7 +57,7 @@ const SinglePostTemplate = () => {
                       </div>
                     </div>
                     <div className="col-lg-4 primary-sidebar sticky-sidebar">
-                      <ArticleSideBar {...article} />
+                      <ArticleSideBar {...article} articles={articleList} />
                     </div>
                   </div>
                 </div>

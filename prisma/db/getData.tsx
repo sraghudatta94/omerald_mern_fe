@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export async function articles() {
   try {
     const articleList = await prisma.articles.findMany({
-      take: 100,
+      // take: 100,
       select: {
         id: true,
         title: true,
@@ -17,9 +17,18 @@ export async function articles() {
         health_topics: true,
         writer_id: true,
       },
+      where: {
+        title: {},
+      },
     });
 
-    return JSON.parse(JSON.stringify(articleList));
+    return JSON.parse(
+      JSON.stringify(
+        articleList.filter(article => {
+          article.title.includes('Is Mental Health still considered ?');
+        })
+      )
+    );
   } catch (err) {
     return err;
   }

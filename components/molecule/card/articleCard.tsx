@@ -59,20 +59,20 @@ const ArticleCard: React.FC<ArticleType> = ({
       </div>
       <div className="post-content  p-30">
         <div className="entry-meta meta-0 font-small mb-10">
-          <a
-            href="/"
-            onClick={e => {
-              e.preventDefault();
-              Router.push({
-                pathname: '/article/filter',
-                query: { data: getArticleTopics(health_topics, topicsList) },
-              });
-            }}
-          >
-            <span className="post-cat text-info">
+          <Link href="/" passHref>
+            <a
+              onClick={e => {
+                e.preventDefault();
+                Router.push({
+                  pathname: '/article/filter',
+                  query: { data: getArticleTopics(health_topics, topicsList) },
+                });
+              }}
+              className="post-cat text-info"
+            >
               {getArticleTopics(health_topics, topicsList)}
-            </span>
-          </a>
+            </a>
+          </Link>
         </div>
         <div className="d-flex post-card-content">
           <h5 className="post-title mb-20 text-xl font-weight-900">

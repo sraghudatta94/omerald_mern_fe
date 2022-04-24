@@ -15,5 +15,6 @@ export const bannerImagePath =
 export const searchedItems = `${baseUrl}/api/search/getSearchArticles`;
 export const searchByParams = `${baseUrl}/api/search/getByTitle`;
 export const getArticle = `${baseUrl}/api/articles`;
+export const geRecentArticle = `${baseUrl}/api/recent/getRecentArticle`;
 export const getAuthors = `${baseUrl}/api/authors`;
 export const getTopics = `${baseUrl}/api/topics`;

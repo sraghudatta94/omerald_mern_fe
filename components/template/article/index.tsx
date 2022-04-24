@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { SearchFilter } from '@components/molecule/search';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import debounce from 'lodash.debounce';
 import ArticleMetaTag from '@public/static/metaData/articleMeta';
@@ -17,8 +17,14 @@ const ArticleCard = dynamic(
 
 const ArticleTemplate = () => {
   let redux = useSelector((state: any) => state);
-  let articleList = redux.article.data ? redux.article.data : [];
-  let topicList = redux.topics.data ? redux.topics.data : [];
+  let articleList = useMemo(
+    () => (redux.article.data ? redux.article.data : []),
+    [redux.article.data]
+  );
+  let topicList = useMemo(
+    () => (redux.topics.data ? redux.topics.data : []),
+    [redux.topics.data]
+  );
   let [filteredList, setFilteredList] = useState(articleList.slice(0, 4));
   let [hasMore, setHasMore] = useState(true);
   let router = useRouter().query.data;
@@ -43,9 +49,7 @@ const ArticleTemplate = () => {
         })
       );
     }
-  }, [router]);
-
-  console.log(preselect);
+  }, [router, topicList, articleList]);
 
   const onChange = e => {
     setFilteredList(

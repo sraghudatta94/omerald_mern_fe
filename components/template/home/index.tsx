@@ -21,7 +21,7 @@ const HomeTemplate: React.FC = () => {
       <main>
         <HomeBanner />
         <FeaturedPost articles={article} />
-        {/* <Trending /> */}
+        <Trending />
       </main>
     </Layout>
   );

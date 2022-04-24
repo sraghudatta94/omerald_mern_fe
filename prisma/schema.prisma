@@ -4,8 +4,8 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:Saif@1996@localhost:3306/omerald_prod?schema=public"
-  // url = "mysql://saifMigration1:Welcome@123@184.168.108.146:3306/omerald_prod?schema=public"
+  // url      = "mysql://root:Saif@1996@localhost:3306/omerald_prod?schema=public"
+  url = "mysql://saifMigration1:Welcome@123@184.168.108.146:3306/omerald_prod?schema=public"
 }
 
 model anthropometrics {

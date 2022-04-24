@@ -3,7 +3,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import articleActionCreator from 'redux/actions/article';
 import authorActionCreator from 'redux/actions/author';
-import parse from 'html-react-parser';
 import topicActionCreator from 'redux/actions/topics';
 import Link from 'next/link';
 import { topicImagePath } from '@public/static/api';
@@ -14,6 +13,7 @@ import Filter from '@components/molecule/filter';
 import debounce from 'lodash.debounce';
 import { SearchFilter } from '@components/molecule/search';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import parse from 'html-react-parser';
 
 const Topics = ({ article, author, topic, user }) => {
   const dispatch = useDispatch();
@@ -88,6 +88,7 @@ const Topics = ({ article, author, topic, user }) => {
                 </section>
                 <section className="flex ">
                   <Filter
+                    preselect={[]}
                     filterList={topicsList}
                     onSelect={onSelect}
                     onRemove={onSelect}
@@ -139,8 +140,8 @@ const Topics = ({ article, author, topic, user }) => {
                               <a id="titleContent">{topic.title}</a>
                             </Link>
                           </h5>
-                          <div className="post-excerpt mb-25 font-small text-muted h-[8vh] overflow-hidden">
-                            {/* <p>{parse(topic.body)}</p> */}
+                          <div className="post-excerpt mb-25 font-small text-muted h-[7vh] overflow-hidden">
+                            <p>{parse(topic.body)}</p>
                           </div>
                           <div className="entry-meta meta-1 float-left font-x-small text-uppercase">
                             <span className="post-on">
