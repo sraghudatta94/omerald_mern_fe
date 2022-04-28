@@ -20,13 +20,14 @@ export async function articles() {
       },
     });
 
-    return JSON.parse(
-      JSON.stringify(
-        articleList.filter(article => {
-          article.title.includes('Is Mental Health still considered ?');
-        })
-      )
-    );
+    // return JSON.parse(
+    //   JSON.stringify(
+    //     articleList.filter(article => {
+    //       article.title.includes('Is Mental Health still considered ?');
+    //     })
+    //   )
+    // );
+    return JSON.parse(JSON.stringify(articleList));
   } catch (err) {
     return err;
   }
