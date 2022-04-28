@@ -1,9 +1,6 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from '@lib/prismaClient';
 
 export default async function handler(req, res) {
-
   try {
     const article = await prisma.articles.findMany({
       select: {
