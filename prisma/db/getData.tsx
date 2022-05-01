@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from '@lib/prismaClient';
 
 export async function articles() {
   try {
@@ -22,13 +20,7 @@ export async function articles() {
       },
     });
 
-    return JSON.parse(
-      JSON.stringify(
-        articleList.filter(article => {
-          article.title.includes('Is Mental Health still considered ?');
-        })
-      )
-    );
+    return JSON.parse(JSON.stringify(articleList));
   } catch (err) {
     return err;
   }

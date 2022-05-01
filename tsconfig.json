@@ -20,7 +20,8 @@
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
       "@constants/*": ["constants/*"],
-      "@public/*": ["public/*"]
+      "@public/*": ["public/*"],
+      "@lib/*": ["lib/*"]
     },
     "strict": false
   },

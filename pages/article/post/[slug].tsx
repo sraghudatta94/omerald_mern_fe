@@ -33,7 +33,6 @@ export async function getStaticProps() {
   const article = await articles();
   const topic = await topics();
   const user = await users();
-
   return {
     props: {
       article,
@@ -46,12 +45,9 @@ export async function getStaticProps() {
 export async function getStaticPaths() {
   let article = await articles();
   article = article.filter(art => art.id != '88');
-  console.log(article);
   const paths = article.map(post => ({
     params: { slug: post.title },
   }));
-
-  console.log(paths);
 
   return {
     paths: paths,
