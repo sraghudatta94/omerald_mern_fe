@@ -13,6 +13,7 @@ export default async function handler(req, res) {
         created_at: true,
         updated_by: true,
         short_description: true,
+        slug: true,
       },
     });
 
