@@ -16,7 +16,7 @@ export const formatDate = (date: Date) => {
 export const getAuthorName = (writerId, users): string => {
   let author: string = 'Omerald';
 
-  users.forEach(user => {
+  (users || []).forEach(user => {
     if (user.id === writerId) {
       author = user.name;
     }
