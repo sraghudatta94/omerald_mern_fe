@@ -42,14 +42,15 @@ const Topics = ({ article, author, topic, user }) => {
   };
 
   const moreData = () => {
+    if (filteredList.length === topicsList.length) {
+      return setHasMore(false);
+    }
     let newList = topicsList.slice(
-      filteredList.length,
+      0,
       filteredList.length + perPage
     );
-    setFilteredList(prev => [...prev, ...newList]);
-    if (filteredList.length === topicsList.length) {
-      setHasMore(false);
-    }
+    setFilteredList(newList);
+   
   };
 
   const debouncedChangeHandler = useCallback(debounce(onChange, 300), []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -71,7 +72,7 @@ const Topics = ({ article, author, topic, user }) => {
     //   setFilteredList(articleList);
     // }
   };
-
+  
   return (
     <>
       <Layout>
@@ -104,7 +105,7 @@ const Topics = ({ article, author, topic, user }) => {
           </div>
           <div className="container w-[65vw]">
             <InfiniteScroll
-              dataLength={topicsList.length}
+              dataLength={filteredList.length}
               next={moreData}
               hasMore={hasMore}
               className={'overflow-x'}
@@ -112,16 +113,17 @@ const Topics = ({ article, author, topic, user }) => {
             >
               <div className="loop-list loop-list-style-1 grid grid-cols-2 gap-10">
                 {filteredList.map(topic => {
+                  const { id, image, title = '', body, created_at } = topic;
                   return (
                     <div
-                      key={topic.id}
+                      key={id}
                       className="post-card-1 border-radius-10 hover-up"
                     >
                       <div
                         className="post-thumb thumb-overlay img-hover-slide position-relative"
                         style={{
                           backgroundImage: `url(${
-                            topicImagePath + topic.image
+                            topicImagePath + image
                           })`,
                         }}
                       >
@@ -136,16 +138,16 @@ const Topics = ({ article, author, topic, user }) => {
                       <div className="post-content p-30">
                         <div className="d-flex post-card-content">
                           <h5 className="post-title mb-20 font-weight-900">
-                            <Link href={`topics/${topic.title}`}>
-                              <a id="titleContent">{topic.title}</a>
+                            <Link href={`topics/${title}`}>
+                              <a id="titleContent">{title}</a>
                             </Link>
                           </h5>
                           <div className="post-excerpt mb-25 font-small text-muted h-[7vh] overflow-hidden">
-                            <p>{parse(topic.body)}</p>
+                            <p>{parse(body || '')}</p>
                           </div>
                           <div className="entry-meta meta-1 float-left font-x-small text-uppercase">
                             <span className="post-on">
-                              {topic.created_at.toString().substring(0, 10)}
+                              {created_at.toString().substring(0, 10)}
                             </span>
                             <span className="time-reading has-dot">
                               12 mins read
