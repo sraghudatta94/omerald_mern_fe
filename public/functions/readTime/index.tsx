@@ -3,7 +3,7 @@ import { TopicType } from '@public/static/types/topics';
 import readingTime from 'reading-time';
 
 export const checkReadTime = description => {
-  return readingTime(description).text;
+  return readingTime(description || '').text;
 };
 
 export const formatDate = (date: Date) => {
@@ -30,7 +30,7 @@ export const getArticleTopics = (
   topicsList: TopicType[]
 ): string => {
   let topicsArticle: string = '';
-  if (!topicId.includes(',')) {
+  if (!(topicId || '').includes(',')) {
     topicsList.forEach(topic => {
       if (topicId === topic.id.toString()) {
         topicsArticle = topic.title;
