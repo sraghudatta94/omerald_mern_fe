@@ -17,6 +17,7 @@ const TrendingCard: React.FC<ArticleType> = ({
   created_at,
   health_topics,
   writer_id,
+  slug
 }: any) => {
   let redux = useSelector((state: any) => state);
   let userList: UserType[] = redux.users ? redux.users.data : [];
@@ -61,7 +62,7 @@ const TrendingCard: React.FC<ArticleType> = ({
             </div>
             <div className="d-flex post-card-content">
               <h5 className="post-title mb-20 font-weight-900">
-                <Link href={`article/post/${title}`}>
+                <Link href={`article/post/${slug}`}>
                   <a>{title}</a>
                 </Link>
               </h5>
