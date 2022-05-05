@@ -9,6 +9,7 @@ export type ArticleType = {
   health_topics: string;
   description: string;
   writer_id: string;
+  slug: string;
 };
 
 export type AuthorType = {

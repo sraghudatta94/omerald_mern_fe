@@ -30,20 +30,9 @@ const Search: React.FC<SearchedArticlesType> = () => {
     })();
   }, []);
 
-  const handleSearch = e => {
-    if (!['', ' ', '  ', '  '].includes(e.target.value)) {
-      (async () => {
-        setSearchedItems(
-          await postData(searchedItems, { searchText: e.target.value })
-        );
-      })();
-    } else {
-      (async () => {
-        setSearchedItems(
-          await postData(searchedItems, { searchText: 'Diabetes' })
-        );
-      })();
-    }
+  const handleSearch = async (e) => {
+    const _searchedItems = await postData(searchedItems, { searchText: e.target.value.trim() || 'Diabetes' });
+    setSearchedItems(_searchedItems);
   };
 
   const debouncedChangeHandler = useCallback(debounce(handleSearch, 600), []); // eslint-disable-line react-hooks/exhaustive-deps

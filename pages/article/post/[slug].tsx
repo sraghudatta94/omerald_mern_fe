@@ -46,7 +46,7 @@ export async function getStaticPaths() {
   let article = await articles();
   article = article.filter(art => art.id != '88');
   const paths = article.map(post => ({
-    params: { slug: post.title },
+    params: { slug: post.slug },
   }));
 
   return {

@@ -24,7 +24,7 @@ const SinglePostTemplate = () => {
   let usersList: UserType[] = redux.users ? redux.users.data : [];
 
   let router = useRouter().query.slug;
-  let article = articlesList.filter(art => art.title === router)[0];
+  let article = articlesList.filter(art => art.slug === router)[0];
   let articleList = articlesList
     .filter(art => article.health_topics.includes(art.health_topics))
     .slice(0, 5);

@@ -2,11 +2,11 @@ import { Links } from '@components/atoms/link';
 import { ArticleType } from '@public/static/types/topics';
 import React from 'react';
 
-const PostContent: React.FC<ArticleType> = ({ title }) => {
+const PostContent: React.FC<ArticleType> = ({ title, slug }) => {
   return (
     <div className="post-content media-body">
       <h6 className="post-title mb-15 text-limit-2-row font-medium">
-        <Links href={`/article/post/${encodeURIComponent(title)}`}>
+        <Links href={`/article/post/${encodeURIComponent(slug)}`}>
           {title}
         </Links>
       </h6>

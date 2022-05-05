@@ -12,6 +12,7 @@ const CarouselImage: React.FC<ArticleType> = ({
   id,
   image,
   short_description,
+  slug,
 }: ArticleType) => {
   const dispatch = useDispatch();
 
@@ -44,7 +45,7 @@ const CarouselImage: React.FC<ArticleType> = ({
                 blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
               />
               <div className="post-content-overlay text-white bg-gray-800 opacity-35 w-[100%] text-2xl text-bold italic p-20">
-                <Link href={`/article/post/${title}`}>
+                <Link href={`/article/post/${slug}`}>
                   <a>
                     <p>{title}</p>
                   </a>

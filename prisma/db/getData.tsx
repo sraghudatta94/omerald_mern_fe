@@ -14,6 +14,7 @@ export async function articles() {
         description: true,
         health_topics: true,
         writer_id: true,
+        slug: true,
       },
       where: {
         title: {},

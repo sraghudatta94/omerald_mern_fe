@@ -83,9 +83,9 @@ const ArticleTemplate = () => {
 
     setFilteredList(
       articleList.filter(article => {
-        return values.some(value =>
-          article.health_topics.split(',').includes(value)
-        );
+        return values.some(value => {
+          article.health_topics?.split(',').includes(value)
+        });
       })
     );
 

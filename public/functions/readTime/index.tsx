@@ -3,7 +3,7 @@ import { TopicType } from '@public/static/types/topics';
 import readingTime from 'reading-time';
 
 export const checkReadTime = description => {
-  return readingTime(description).text;
+  return readingTime(description || '').text;
 };
 
 export const formatDate = (date: Date) => {
@@ -16,7 +16,7 @@ export const formatDate = (date: Date) => {
 export const getAuthorName = (writerId, users): string => {
   let author: string = 'Omerald';
 
-  users.forEach(user => {
+  (users || []).forEach(user => {
     if (user.id === writerId) {
       author = user.name;
     }
@@ -30,7 +30,7 @@ export const getArticleTopics = (
   topicsList: TopicType[]
 ): string => {
   let topicsArticle: string = '';
-  if (!topicId.includes(',')) {
+  if (!(topicId || '').includes(',')) {
     topicsList.forEach(topic => {
       if (topicId === topic.id.toString()) {
         topicsArticle = topic.title;
