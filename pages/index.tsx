@@ -31,7 +31,7 @@ const Home: React.FC<any> = ({ article, author, topic, user, banner }) => {
     authorActionCreator.setAuthor(dispatch, authorList);
     topicActionCreator.setTopics(dispatch, topicsList);
     userActionCreator.setUsers(dispatch, usersList);
-    bannerActionCreator.setbanners(dispatch, bannersList);
+    // bannerActionCreator.setbanners(dispatch, bannersList);
   });
 
   return <HomeTemplate />;
