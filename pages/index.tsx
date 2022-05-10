@@ -24,14 +24,12 @@ const Home: React.FC<any> = ({ article, author, topic, user, banner }) => {
   let authorList: AuthorType[] = author ? author : [];
   let topicsList: TopicsListType[] = topic ? topic : [];
   let usersList: UserType[] = user ? user : [];
-  let bannersList: UserType[] = banner ? banner : [];
 
   useEffect(() => {
     articleActionCreator.addArticle(dispatch, articleList);
     authorActionCreator.setAuthor(dispatch, authorList);
     topicActionCreator.setTopics(dispatch, topicsList);
     userActionCreator.setUsers(dispatch, usersList);
-    bannerActionCreator.setbanners(dispatch, bannersList);
   });
 
   return <HomeTemplate />;

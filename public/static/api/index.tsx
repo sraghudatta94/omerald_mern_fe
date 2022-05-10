@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:3000';
-// const baseUrl = 'https://omerald-mern-fe.vercel.app/';
+// const baseUrl = 'http://localhost:3000';
+const baseUrl = 'https://omerald-mern-fe.vercel.app/';
 
 // export const imagePath = 'http://omerald.com/public/uploads/articleimages/';
 // export const getArticle = `http://localhost:3000/api/articles`;

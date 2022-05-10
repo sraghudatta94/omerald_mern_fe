@@ -12,7 +12,7 @@ const Footer: FC = () => {
   let topicsList: Array<TopicType> = apiData ? apiData : [];
 
   return (
-    <footer className="pt-50 pb-20 bg-grey">
+    <footer className="pt-50 pb-20 bg-grey border-t-2">
       <div className="container w-[95vw] md:w-[65vw]">
         <div className="row">
           <div className="col-lg-5 col-md-6">

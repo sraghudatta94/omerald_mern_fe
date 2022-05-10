@@ -20,8 +20,8 @@ const HomeTemplate: React.FC = () => {
       <HomeMetaTags />
       <main>
         <HomeBanner />
-        <FeaturedPost articles={article} />
-        <Trending />
+          <FeaturedPost articles={article} />
+          <Trending />
       </main>
     </Layout>
   );

@@ -8,6 +8,7 @@ const Search = dynamic(() => import('@components/organism/search'));
 const Footer = dynamic(() => import('@components/organism/footer'));
 
 const Layout: React.FC<LayoutType> = ({ children }) => {
+  
   const openSearch = () => {
     document.body.classList.toggle('open-search-form');
   };

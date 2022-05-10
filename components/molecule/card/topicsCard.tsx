@@ -34,7 +34,7 @@ const TopicsCard = ({ id, image, title, created_at }) => {
             {formatDate(created_at)}
           </p>
           <a href="#" className="text-blue">
-            Find Articles
+            See Articles
           </a>
         </div>
       </div>

@@ -1,17 +1,17 @@
-import { ArticleType, TopicType, UserType } from '@public/static/types/topics';
-import { articleImagePath } from '@public/static/api';
+import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { ArticleType, TopicType, UserType } from '@public/static/types/topics';
+import { articleImagePath } from '@public/static/api';
+import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import {
   checkReadTime,
   formatDate,
   getArticleTopics,
   getAuthorName,
 } from '@public/functions/readTime';
-import { useSelector } from 'react-redux';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
 
 const SocialLinks = dynamic(() => import('../social/index'));
 
@@ -24,11 +24,12 @@ const ArticleCard: React.FC<ArticleType> = ({
   health_topics,
   slug,
 }) => {
-  let redux = useSelector((state: any) => state);
-  let userList: UserType[] = redux.users ? redux.users.data : [];
-  let topicsList: TopicType[] = redux.topics ? redux.topics.data : [];
 
+  let redux = useSelector((state: any) => state);
+  let userList: UserType[] = redux.users ? redux?.users?.data : [];
+  let topicsList: TopicType[] = redux.topics ? redux?.topics?.data : [];
   let Router = useRouter();
+
   return (
     <div className="post-card-1 border-radius-10 hover-up">
       <div className="post-thumb thumb-overlay img-hover-slide position-relative">
@@ -37,8 +38,8 @@ const ArticleCard: React.FC<ArticleType> = ({
             <Image
               alt="articleImage"
               src={articleImagePath + image}
-              objectFit="cover"
-              layout="fill"
+              width="400"
+              height={"400"}
               placeholder="blur"
               blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
             />

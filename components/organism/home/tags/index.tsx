@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 const Tags = () => {
   let redux = useSelector((state: any) => state);
 
-  let topicList: TopicType[] = redux.topics.data ? redux.topics.data : [];
+  let topicList: TopicType[] = redux?.topics?.data ? redux?.topics?.data : [];
 
   return (
     <div className="hot-tags pt-30 pb-30 font-small align-self-center">
@@ -21,11 +21,11 @@ const Tags = () => {
               Hot tags:
             </p>
             <ul className="list-inline d-inline-block tags my-1 md:m-0">
-              {topicList.slice(0, 3).map((topic: TopicType) => {
+              {topicList?.slice(0, 3).map((topic: TopicType) => {
                 return (
-                  <li className="list-inline-item" key={topic.id}>
-                    <Link href={`/topics/${topic.title}`}>
-                      <a>#{topic.title}</a>
+                  <li className="list-inline-item" key={topic?.id}>
+                    <Link href={`/topics/${topic?.title}`}>
+                      <a>#{topic?.title}</a>
                     </Link>
                   </li>
                 );
