@@ -2,18 +2,18 @@ import { articles, authors, topics, users } from 'prisma/db/getData';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { TopicsListType } from '@public/types';
-import {
-  ArticleType,
-  AuthorType,
-  TopicType,
-  UserType,
-} from '@public/static/types/topics';
 import articleActionCreator from 'redux/actions/article';
 import authorActionCreator from 'redux/actions/author';
 import topicActionCreator from 'redux/actions/topics';
 import userActionCreator from 'redux/actions/users';
 import dynamic from 'next/dynamic';
 import React from 'react';
+import {
+  ArticleType,
+  AuthorType,
+  TopicType,
+  UserType,
+} from '@public/static/types/topics';
 
 const HomeTemplate = dynamic(() => import('@components/template/home/index'));
 
