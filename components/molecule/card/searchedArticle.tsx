@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const SearchedArticleCard = ({ id, image, title, short_description }: any) => {
+const SearchedArticleCard = ({ id, image, slug,title, short_description }: any) => {
   return (
     <div className="col-lg-4 col-md-6" key={id}>
       <div className="d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-5 mb-30">
@@ -17,7 +17,7 @@ const SearchedArticleCard = ({ id, image, title, short_description }: any) => {
         </div>
         <div className="post-content media-body">
           <h6 className="max-h-[20px] overflow-hidden">
-            <Link href={`/article/${title}`}>
+            <Link href={`/article/post/${slug}`}>
               <a>{title}</a>
             </Link>
           </h6>
