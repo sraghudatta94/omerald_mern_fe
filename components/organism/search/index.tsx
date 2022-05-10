@@ -32,7 +32,13 @@ const Search: React.FC<SearchedArticlesType> = () => {
   }, []);
 
   useEffect(() => {
-    router.events.on('routeChangeComplete', ()=>{document.body.classList.toggle('open-search-form');})
+    router.events.on('routeChangeComplete', ()=>
+      {
+        if(document.body.classList.value!==""){
+          document.body.classList.toggle("open-search-form")
+        }
+      }
+    )
   }, [router.events]);
 
   const handleSearch = async (e) => {
