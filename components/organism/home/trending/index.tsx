@@ -1,8 +1,7 @@
 import { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { ArticleType, TopicType } from '@public/static/types/topics';
-import { articleImagePath, topicImagePath } from '@public/static/api';
-
+import { articleImagePath } from '@public/static/api';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -21,14 +20,12 @@ const TopicsCard = dynamic(
   () => import('@components/molecule/card/topicsCard')
 );
 
-const Pagination = dynamic(() => import('@components/molecule/pagination'));
-
 const Trending: React.FC = (): ReactElement => {
   let redux = useSelector((state: any) => state);
-  let articlesList: ArticleType[] = redux.article.data
-    ? redux.article.data
+  let articlesList: ArticleType[] = redux?.article?.data
+    ? redux?.article?.data
     : [];
-  let topicList: TopicType[] = redux.topics.data ? redux.topics.data : [];
+  let topicList: TopicType[] = redux?.topics?.data ? redux?.topics?.data : [];
 
   return (
     <div className="bg-grey pt-50 pb-50">
@@ -41,7 +38,7 @@ const Trending: React.FC = (): ReactElement => {
               </div>
               <div className="loop-list loop-list-style-1">
                 <div className="row">
-                  {articlesList.slice(14, 18).map(article => {
+                  {articlesList.slice(1, 5).map(article => {
                     return <TrendingCard key={article.id} {...article} />;
                   })}
                 </div>
@@ -52,7 +49,7 @@ const Trending: React.FC = (): ReactElement => {
                 <h5 className="mt-5 mb-30">Latest Blogs</h5>
               </div>
               <div className="loop-list loop-list-style-1">
-                {articlesList.slice(34, 38).map(article => {
+                {articlesList.slice(5, 8).map(article => {
                   return <LatestArticlesCard key={article.id} {...article} />;
                 })}
               </div>
@@ -71,7 +68,7 @@ const Trending: React.FC = (): ReactElement => {
                 </div>
                 <div className="post-block-list post-module-1">
                   <ul className="list-post">
-                    {articlesList.slice(31, 37).map(article => {
+                    {articlesList.slice(0, 4).map(article => {
                       return <PopularCard key={article.id} {...article} />;
                     })}
                   </ul>
@@ -95,10 +92,10 @@ const Trending: React.FC = (): ReactElement => {
                 </div>
                 <div className="instagram-gellay">
                   <ul className="insta-feed">
-                    {articlesList.slice(25, 29).map(article => {
+                    {articlesList.slice(0, 5).map(article => {
                       return (
                         <li key={article.id}>
-                          <a href="/https://in.pinterest.com/mednologies/_created/">
+                          <a href="https://in.pinterest.com/mednologies/_created/" target="_blank">
                             <Image
                               className="border-radius-5"
                               src={articleImagePath + article.image}

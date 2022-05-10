@@ -27,9 +27,9 @@ const FeaturedPost: React.FC<FeaturedPostType> = ({
               <PostCarousel />
             </div>
 
-            {articlesList.slice(33, 40).map(article => {
-              return <ArticleCard key={article.id} {...article} />;
-            })}
+              {articlesList.slice(0, 7).map(article => {
+                return <ArticleCard key={article.id} {...article} />;
+              })}
           </article>
         </div>
       </div>

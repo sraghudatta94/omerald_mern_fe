@@ -1,14 +1,14 @@
+import { articleImagePath } from '@public/static/api';
+import { ArticleType, TopicType } from '@public/static/types/topics';
+import { useSelector } from 'react-redux';
+import SocialLinks from '../social';
+import Image from 'next/image';
+import Link from 'next/link';
 import {
   checkReadTime,
   formatDate,
   getArticleTopics,
 } from '@public/functions/readTime';
-import { articleImagePath } from '@public/static/api';
-import { ArticleType, TopicType, UserType } from '@public/static/types/topics';
-import { useSelector } from 'react-redux';
-import SocialLinks from '../social';
-import Image from 'next/image';
-import Link from 'next/link';
 
 const LatestCard: React.FC<ArticleType> = ({
   image,
@@ -32,8 +32,8 @@ const LatestCard: React.FC<ArticleType> = ({
                     <Image
                       alt="articleImage"
                       src={articleImagePath + image}
-                      layout="fill"
-                      objectFit="cover"
+                      width="300"
+                      height={"220"}
                       placeholder="blur"
                       blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
                     />

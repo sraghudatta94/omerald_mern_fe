@@ -17,7 +17,7 @@ const PostCarousel: React.FC = () => {
 
   let redux = useSelector((state: any) => state);
   let articleList: ArticleType[] = redux.article.data
-    ? redux.article.data.slice(35, 40)
+    ? redux.article.data.slice(0, 5)
     : [];
 
   return (

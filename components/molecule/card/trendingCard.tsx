@@ -5,10 +5,10 @@ import {
 } from '@public/functions/readTime';
 import { articleImagePath } from '@public/static/api';
 import { ArticleType, TopicType, UserType } from '@public/static/types/topics';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import SocialLinks from '../social';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const TrendingCard: React.FC<ArticleType> = ({
   image,
@@ -32,8 +32,8 @@ const TrendingCard: React.FC<ArticleType> = ({
                 <Image
                   alt="articleImage"
                   src={articleImagePath + image}
-                  objectFit="cover"
-                  layout="fill"
+                  width="400"
+                  height="400"
                   placeholder="blur"
                   blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
                 />
