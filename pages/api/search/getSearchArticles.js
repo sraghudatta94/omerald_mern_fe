@@ -9,6 +9,7 @@ export default async function handler(req, res) {
         image: true,
         created_at: true,
         updated_by: true,
+        slug:true,
         short_description: true,
       },
       where: {
