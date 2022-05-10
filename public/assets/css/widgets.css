@@ -544,9 +544,9 @@ span.has-dot::before {
     content: "";
     position: absolute;
     top: 10px;
-    right: 10px;
+    /* right: 10px; */
     bottom: 0;
-    left: 10px;
+    /* left: 10px; */
     border-radius: 10px;
     box-shadow: var(--box-shadow-normal), 0 0 0 transparent;
     transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);

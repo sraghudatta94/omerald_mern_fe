@@ -704,7 +704,7 @@ header .search-icon .ti-close,
   width: 100%;
 }
 .open-search-form .main-search-form {
-  overflow: hidden;
+  overflow: auto;
   transition: transform 0.2s ease-in-out;
   height: 100vh;
   transform: scaleY(1);

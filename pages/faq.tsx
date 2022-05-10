@@ -1,9 +1,13 @@
 import Layout from '@components/common';
 import { faqList } from '@public/static/faq';
 import MetaData from '@public/static/metaData/metaTag';
+import { policy } from 'prisma/db/getData';
 import React from 'react';
+import parse from 'html-react-parser';
 
-const FAQ = () => {
+const FAQ = ({ policies }) => {
+  let policyList: any[] = policies ? policies : [];
+
   return (
     <Layout>
       <MetaData
@@ -14,29 +18,12 @@ const FAQ = () => {
         <div className="w-[95vw]  m-auto">
           <div className="archive-header mt-[10vh] ">
             <div className="container text-left">
-              <h3 className="text-3xl font-bold">FAQ</h3>
-              <div className="breadcrumb my-2 flex">
-                <p>Home</p>
-                <span>
-                  <a>FAQ</a>
-                </span>
-              </div>
+              <h3 className="text-3xl font-bold">{policyList[2].s_key}</h3>
             </div>
           </div>
           <div className="container">
-            <div className="faq-content my-10">
-              <ol>
-                {faqList.map(list => {
-                  return (
-                    <li className="text-lg font-semibold" key={list.id}>
-                      {list.que}
-                      <span className="d-block text-sm font-semibold my-2">
-                        {list.ans}
-                      </span>
-                    </li>
-                  );
-                })}
-              </ol>
+            <div className="text-md text-gray-600 font-light my-10">
+              {parse(policyList[2].s_value)}
             </div>
           </div>
         </div>
@@ -46,3 +33,13 @@ const FAQ = () => {
 };
 
 export default FAQ;
+
+export async function getStaticProps() {
+  const policies: any[] = await policy();
+
+  return {
+    props: {
+      policies,
+    },
+  };
+}

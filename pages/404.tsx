@@ -9,7 +9,7 @@ import topicActionCreator from 'redux/actions/topics';
 import authorActionCreator from 'redux/actions/author';
 import dynamic from 'next/dynamic';
 
-const Layout = dynamic(() => import('components/common/index'));
+const Layout = dynamic(() => import('@components/common/index'));
 const Error = ({ article, author, topic }) => {
   const dispatch = useDispatch();
 

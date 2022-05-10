@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { Links } from '@components/atoms/link';
 import { navLinks } from 'public/static/data/links/index';
 import { NavMenu } from '../nav';
@@ -6,6 +7,8 @@ import { NavMenu } from '../nav';
 export const MenuLinks: React.FC = () => {
   const [size, setSize] = useState(0);
   const [isToggled, setToggled] = useState(false);
+  const router = useRouter().route;
+
   const toggleTrueFalse = () => setToggled(!isToggled);
 
   useLayoutEffect(() => {
@@ -22,7 +25,9 @@ export const MenuLinks: React.FC = () => {
           return (
             <li key={nav.id}>
               <Links href={nav.route}>
-                <a className="text-gray-400">{nav.title}</a>
+                <a className={
+                  `text-gray-400 ${nav.route === router ? 'text-primary' : ''}`
+                  } >{nav.title}</a>
               </Links>
             </li>
           );
