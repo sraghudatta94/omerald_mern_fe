@@ -15,7 +15,7 @@ const CarouselImage: React.FC<ArticleType> = ({
   return (
     <div key={id} className="position-relative post-thumb">
       <div className="thumb-overlay img-hover-slide">
-        <Link href={`/article/singlePost/${id}`}>       
+        <Link href={`/article/singlePost/${id}`} passHref>       
             <div className="img-link">
               <Image
                 alt="articleImage"

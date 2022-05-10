@@ -95,7 +95,7 @@ const Trending: React.FC = (): ReactElement => {
                     {articlesList.slice(0, 5).map(article => {
                       return (
                         <li key={article.id}>
-                          <a href="https://in.pinterest.com/mednologies/_created/" target="_blank">
+                          <a href="https://in.pinterest.com/mednologies/_created/" target="_blank" rel='noreferrer'>
                             <Image
                               className="border-radius-5"
                               src={articleImagePath + article.image}
