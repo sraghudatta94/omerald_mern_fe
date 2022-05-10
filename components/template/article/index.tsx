@@ -1,12 +1,13 @@
 import { useSelector } from 'react-redux';
 import { SearchFilter } from '@components/molecule/search';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import debounce from 'lodash.debounce';
 import ArticleMetaTag from '@public/static/metaData/articleMeta';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Filter from '@components/molecule/filter';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Layout = dynamic(() => import('@components/common'));
 
@@ -16,11 +17,39 @@ const ArticleCard = dynamic(
 
 const ArticleTemplate = () => {
   let redux = useSelector((state: any) => state);
-  let articleList = redux.article.data ? redux.article.data : [];
-  let topicList = redux.topics.data ? redux.topics.data : [];
+  let articleList = useMemo(
+    () => (redux.article.data ? redux.article.data : []),
+    [redux.article.data]
+  );
+  let topicList = useMemo(
+    () => (redux.topics.data ? redux.topics.data : []),
+    [redux.topics.data]
+  );
   let [filteredList, setFilteredList] = useState(articleList.slice(0, 4));
   let [hasMore, setHasMore] = useState(true);
+  let router = useRouter().query.data;
+  let [preselect, setPreselect] = useState([]);
   const perPage = 3;
+
+  useEffect(() => {
+    let topicId = [];
+    if (router) {
+      topicList.forEach(topic => {
+        if (topic.title === router) {
+          topicId.push(topic.id);
+          setPreselect([{ name: topic.title, id: topic.id }]);
+        }
+      });
+
+      setFilteredList(
+        articleList.filter(article => {
+          return topicId.some(value =>
+            article.health_topics.split(',').includes(value)
+          );
+        })
+      );
+    }
+  }, [router, topicList, articleList]);
 
   const onChange = e => {
     setFilteredList(
@@ -31,28 +60,32 @@ const ArticleTemplate = () => {
   };
 
   const moreData = () => {
-    let newList = articleList.slice(
-      filteredList.length,
-      filteredList.length + perPage
-    );
-    setFilteredList(prev => [...prev, ...newList]);
-    if (filteredList.length === articleList.length) {
-      setHasMore(false);
+    if (!router) {
+      let newList = articleList.slice(
+        filteredList.length,
+        filteredList.length + perPage
+      );
+
+      setFilteredList(prev => [...prev, ...newList]);
+      if (filteredList.length === articleList.length) {
+        setHasMore(false);
+      }
     }
   };
 
   const debouncedChangeHandler = useCallback(debounce(onChange, 300), []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onSelect = (selectedList, selectedItem) => {
+    console.log(selectedList);
     let values = selectedList.map(select => {
       return select.id;
     });
 
     setFilteredList(
       articleList.filter(article => {
-        return values.some(value =>
-          article.health_topics.split(',').includes(value)
-        );
+        return values.some(value => {
+          article.health_topics?.split(',').includes(value)
+        });
       })
     );
 
@@ -77,11 +110,16 @@ const ArticleTemplate = () => {
                   <span></span> All
                 </section>
                 <div className="px-4 flex">
-                  <Filter
-                    filterList={topicList}
-                    onSelect={onSelect}
-                    onRemove={onSelect}
-                  />
+                  {preselect ? (
+                    <Filter
+                      preselect={preselect}
+                      filterList={topicList}
+                      onSelect={onSelect}
+                      onRemove={onSelect}
+                    />
+                  ) : (
+                    <></>
+                  )}
                   <SearchFilter
                     onSubmit={() => {}}
                     onChange={debouncedChangeHandler}

@@ -1,19 +1,21 @@
-import SocialLinks from '@components/molecule/social';
-import { TopicType } from '@public/static/types/topics';
-import { useSelector } from 'react-redux';
 import Link from 'next/link';
-import React, { FC } from 'react';
+import React from 'react';
+import SocialLinks from '@components/molecule/social';
 import { TopicsCloudList } from '@components/molecule/link/topics';
+import { TopicType } from '@public/static/types/topics';
+import { FC } from 'react';
+import { useFetch } from 'hooks/useFetch';
+import { getTopics } from '@public/static/api';
 
 const Footer: FC = () => {
-  let redux = useSelector((state: any) => state);
-  let topicsList: Array<TopicType> = redux.topics.data ? redux.topics.data : [];
+  const { apiData } = useFetch(getTopics);
+  let topicsList: Array<TopicType> = apiData ? apiData : [];
 
   return (
     <footer className="pt-50 pb-20 bg-grey">
       <div className="container w-[95vw] md:w-[65vw]">
         <div className="row">
-          <div className="col-lg-3 col-md-6">
+          <div className="col-lg-5 col-md-6">
             <div className="sidebar-widget wow fadeInUp animated mb-30">
               <div className="widget-header-2 position-relative mb-30">
                 <h5 className="mt-5 mb-30">About Us</h5>
@@ -34,7 +36,7 @@ const Footer: FC = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-2 col-md-6">
+          <div className="col-lg-3 col-md-6">
             <div
               className="sidebar-widget widget_categories wow fadeInUp animated mb-30"
               data-wow-delay="0.1s"
@@ -43,11 +45,6 @@ const Footer: FC = () => {
                 <h5 className="mt-5 mb-30">Quick link</h5>
               </div>
               <ul className="font-small">
-                <li className="cat-item cat-item-2">
-                  <Link href="/about">
-                    <a>About Us</a>
-                  </Link>
-                </li>
                 <li className="cat-item cat-item-4">
                   <Link href="/support">
                     <a>Help & Support</a>
@@ -73,7 +70,7 @@ const Footer: FC = () => {
               </ul>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6">
+          <div className="col-lg-4 col-md-6">
             <div
               className="sidebar-widget widget_tagcloud wow fadeInUp animated mb-30"
               data-wow-delay="0.2s"
@@ -86,7 +83,7 @@ const Footer: FC = () => {
           </div>
 
           {/* Newsletter */}
-          <div className="col-lg-4 col-md-6">
+          {/* <div className="col-lg-4 col-md-6">
             <div
               className="sidebar-widget widget_newsletter wow fadeInUp animated mb-30"
               data-wow-delay="0.3s"
@@ -125,7 +122,7 @@ const Footer: FC = () => {
                 </form>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Copyright */}

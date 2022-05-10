@@ -24,7 +24,7 @@ const FeaturedPost: React.FC<FeaturedPostType> = ({
             data-wow-delay="0.1s"
           >
             <div className="col-span-2 mb-30">
-              <PostCarousel articles={articlesList} />
+              <PostCarousel />
             </div>
 
             {articlesList.slice(33, 40).map(article => {

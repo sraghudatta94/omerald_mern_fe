@@ -23,7 +23,7 @@ const HomeTemplate: React.FC = () => {
         <FeaturedPost articles={article} />
         <Trending />
       </main>
-    </Layout> 
+    </Layout>
   );
 };
 

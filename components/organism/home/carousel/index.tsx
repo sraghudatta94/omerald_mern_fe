@@ -1,15 +1,12 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { ArticleType } from '@public/static/types/topics';
 import dynamic from 'next/dynamic';
+import { ArticleType, BannerType } from '@public/static/types/topics';
+import { useSelector } from 'react-redux';
 
 const CarouselImage = dynamic(() => import('@components/molecule/carousel'));
 
-type Props = {
-  articles?: ArticleType[];
-};
-
-const PostCarousel: React.FC<Props> = ({ articles }: Props) => {
+const PostCarousel: React.FC = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -18,14 +15,17 @@ const PostCarousel: React.FC<Props> = ({ articles }: Props) => {
     slidesToScroll: 1,
   };
 
-  let articlesList: ArticleType[] = articles ? articles.slice(37, 40) : [];
+  let redux = useSelector((state: any) => state);
+  let articleList: ArticleType[] = redux.article.data
+    ? redux.article.data.slice(35, 40)
+    : [];
 
   return (
     <div>
       <div className="carausel-post-1 hover-up border-radius-10 overflow-hidden transition-normal position-relative wow fadeInUp animated">
         <div className="arrow-cover"></div>
         <Slider {...settings} className="slide-fade">
-          {articlesList.map(article => {
+          {articleList.map(article => {
             return <CarouselImage key={article.id} {...article} />;
           })}
         </Slider>

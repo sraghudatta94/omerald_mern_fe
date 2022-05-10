@@ -9,6 +9,7 @@ export type ArticleType = {
   health_topics: string;
   description: string;
   writer_id: string;
+  slug: string;
 };
 
 export type AuthorType = {
@@ -27,4 +28,11 @@ export type TopicType = {
 export type UserType = {
   id: number;
   name: string;
+};
+
+export type BannerType = {
+  id: number;
+  article_id: string;
+  description: string;
+  image: string;
 };

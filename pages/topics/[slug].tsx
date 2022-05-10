@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-const Layout = dynamic(() => import('components/common'));
+const Layout = dynamic(() => import('@components/common'));
 
 const Topics = ({ article, author, topic }) => {
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ const Topics = ({ article, author, topic }) => {
   let topicList = topic ? topic : [];
   let router = useRouter().query.slug;
 
+  console.log({ topicList })
   let topics = topicList.filter(art => art.title === router)[0];
 
   useEffect(() => {
@@ -172,75 +173,6 @@ const Topics = ({ article, author, topic }) => {
                     </Link>
                   </li>
                 </ul>
-              </div>
-              {/* <!--author box--> */}
-              <div className="author-bio p-30 mt-50 border-radius-10 bg-white wow fadeIn animated">
-                <div className="author-image mb-30">
-                  <Link href="/author">
-                    <a>
-                      <Image
-                        src="/assets/imgs/authors/author-3.jpg"
-                        alt="author"
-                        className="avatar"
-                        width="60"
-                        height="60"
-                      />
-                    </a>
-                  </Link>
-                </div>
-                <div className="author-info">
-                  <h4 className="font-weight-bold mb-20">
-                    <span className="vcard author">
-                      <span className="fn">
-                        <Link href="/author">
-                          <a>Barbara Cartland</a>
-                        </Link>
-                      </span>
-                    </span>
-                  </h4>
-                  <h5 className="text-muted">About author</h5>
-                  <div className="author-description text-muted">
-                    You should write because you love the shape of stories and
-                    sentences and the creation of different words on a page.{' '}
-                  </div>
-                  <Link href="/author">
-                    <a className="author-bio-link mb-md-0 mb-3">
-                      View all posts (125)
-                    </a>
-                  </Link>
-                  <div className="author-social">
-                    <ul className="author-social-icons">
-                      <li className="author-social-link-facebook">
-                        <Link href="/#">
-                          <a target="_blank">
-                            <i className="ti-facebook"></i>
-                          </a>
-                        </Link>
-                      </li>
-                      <li className="author-social-link-twitter">
-                        <Link href="/#">
-                          <a target="_blank">
-                            <i className="ti-twitter-alt"></i>
-                          </a>
-                        </Link>
-                      </li>
-                      <li className="author-social-link-pinterest">
-                        <Link href="/#">
-                          <a target="_blank">
-                            <i className="ti-pinterest"></i>
-                          </a>
-                        </Link>
-                      </li>
-                      <li className="author-social-link-instagram">
-                        <Link href="/#">
-                          <a target="_blank">
-                            <i className="ti-instagram"></i>
-                          </a>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </article>
           </div>

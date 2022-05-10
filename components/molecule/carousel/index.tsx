@@ -1,67 +1,63 @@
 import React from 'react';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import { ArticleType } from '@public/static/types/topics';
-import { articleImagePath } from '@public/static/api';
-import { checkReadTime } from '@public/functions/readTime';
 import Image from 'next/image';
-import { Links } from '@components/atoms/link';
-
-const StarIcon = dynamic(() => import('@components/atoms/icons/starIcon'));
+import filterListActionCreator from 'redux/actions/filterList';
+import { articleImagePath, bannerImagePath } from '@public/static/api';
+import { ArticleType, BannerType } from '@public/static/types/topics';
+import { useDispatch } from 'react-redux';
+import Router, { withRouter } from 'next/router';
+import Link from 'next/link';
 
 const CarouselImage: React.FC<ArticleType> = ({
-  image,
-  id,
   title,
+  id,
+  image,
   short_description,
-  author,
-  description,
+  slug,
 }: ArticleType) => {
+  const dispatch = useDispatch();
+
+  // const showFilteredArticles = async (articleId: number) => {
+  //   let data = await fetch('http://localhost:3000/api/singleArticle', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       id: articleId.toString(),
+  //     },
+  //   });
+
+  //   let article = await data.json();
+  //   filterListActionCreator.addfilterList(dispatch, article[0].health_topics);
+  //   Router.push({ pathname: '/article/filter' });
+  // };
+
   return (
     <div key={id} className="position-relative post-thumb">
       <div className="thumb-overlay img-hover-slide position-relative">
-        <div className="img-link">
-          <Image
-            alt="articleImage"
-            src={articleImagePath + image}
-            objectFit="cover"
-            layout="fill"
-            placeholder="blur"
-            blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
-          />
-          <div className="post-content-overlay text-white ml-30 mr-30 pb-30">
-            <h3 className="post-title font-weight-900 mb-20">
-              <Link href={`article/post/${title}`}>
-                <a className="text-white">{title}</a>
-              </Link>
-            </h3>
-            <p>{short_description}</p>
-            <div className="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
-              <span className="post-on">{author ? author : 'Omerald'} </span>
-              <span className="hit-count has-dot">23k views</span>
-              <span className="hit-count has-dot">
-                {checkReadTime(description)}
-              </span>
-            </div>
-          </div>
-        </div>
+        <Link href={`/article/singlePost/${id}`}>
+          <a>
+            <div className="img-link">
+              <Image
+                alt="articleImage"
+                src={articleImagePath + image}
+                objectFit="cover"
+                layout="fill"
+                placeholder="blur"
+                blurDataURL="https://res.cloudinary.com/raghu369/image/upload/v1648933960/Omerald/assets/doctor_xidsp3.webp"
+              />
+              <div className="post-content-overlay text-white bg-gray-800 opacity-35 w-[100%] text-2xl text-bold italic p-20">
+                <Link href={`/article/post/${slug}`}>
+                  <a>
+                    <p>{title}</p>
+                  </a>
+                </Link>
 
-        <StarIcon />
-        <div className="post-content-overlay text-white ml-30 mr-30 pb-30">
-          <h3 className="post-title font-weight-900 mb-20">
-            <Link href={`article/post/${title}`}>
-              <a className="text-white">{title}</a>
-            </Link>
-          </h3>
-          <p>{short_description}</p>
-          <div className="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
-            <span className="post-on">{author ? author : 'Omerald'} </span>
-            <span className="hit-count has-dot">23k views</span>
-            <span className="hit-count has-dot">
-              {checkReadTime(description)}
-            </span>
-          </div>
-        </div>
+                <p className="text-sm font-light text-white max-h-[4vh] max-w-[85%] overflow-hidden">
+                  {short_description}
+                </p>
+              </div>
+            </div>
+          </a>
+        </Link>
       </div>
     </div>
   );

@@ -5,8 +5,6 @@ import { useRouter } from 'next/router';
 import { TopicType, UserType } from '@public/static/types/topics';
 import { PostTitle } from '@components/atoms/typography';
 import SingleArticleMetaTag from '@public/static/metaData/singleArticleMeta';
-import Link from 'next/link';
-import Image from 'next/image';
 import ArticleSideBar from '@components/molecule/post/sidePost';
 
 const PostBottom = dynamic(() => import('@components/molecule/post/bottom'));
@@ -26,7 +24,7 @@ const SinglePostTemplate = () => {
   let usersList: UserType[] = redux.users ? redux.users.data : [];
 
   let router = useRouter().query.slug;
-  let article = articlesList.filter(art => art.title === router)[0];
+  let article = articlesList.filter(art => art.slug === router)[0];
   let articleList = articlesList
     .filter(art => article.health_topics.includes(art.health_topics))
     .slice(0, 5);
@@ -59,7 +57,7 @@ const SinglePostTemplate = () => {
                       </div>
                     </div>
                     <div className="col-lg-4 primary-sidebar sticky-sidebar">
-                      <ArticleSideBar {...article} />
+                      <ArticleSideBar {...article} articles={articleList} />
                     </div>
                   </div>
                 </div>
