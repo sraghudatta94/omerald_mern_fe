@@ -3,7 +3,7 @@ import prisma from '@lib/prismaClient';
 export async function articles() {
   try {
     const articleList = await prisma.articles.findMany({
-      // take: 100,
+      // take: 10,
       select: {
         id: true,
         title: true,

@@ -18,8 +18,6 @@ const Topics = ({ article, author, topic }) => {
   let articleList = article ? article : [];
   let topicList = topic ? topic : [];
   let router = useRouter().query.slug;
-
-  console.log({ topicList })
   let topics = topicList.filter(art => art.title === router)[0];
 
   useEffect(() => {

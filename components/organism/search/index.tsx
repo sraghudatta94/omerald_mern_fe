@@ -4,13 +4,14 @@ import debounce from 'lodash.debounce';
 import Loader from '@components/common/loader';
 import SearchedArticle from './articles/index';
 import { SearchedArticlesType } from '@public/types';
-import { getSearchedItems } from '@public/functions/readTime';
 import { searchedItems } from '@public/static/api';
+import { useRouter } from 'next/router';
 
 const TrendingTopics = dynamic(() => import('./trending/index'));
 
 const Search: React.FC<SearchedArticlesType> = () => {
   const [searchedArticles, setSearchedItems] = useState([]);
+  const location = useRouter();
 
   async function postData(url = '', data = {}) {
     // Default options are marked with *
@@ -30,8 +31,16 @@ const Search: React.FC<SearchedArticlesType> = () => {
     })();
   }, []);
 
-  const handleSearch = async (e) => {
-    const _searchedItems = await postData(searchedItems, { searchText: e.target.value.trim() || 'Diabetes' });
+  useEffect(() => {
+    if (document.body.classList.length !== 0) {
+      document.body.classList.toggle('open-search-form');
+    }
+  }, [location]);
+
+  const handleSearch = async e => {
+    const _searchedItems = await postData(searchedItems, {
+      searchText: e.target.value.trim() || 'Diabetes',
+    });
     setSearchedItems(_searchedItems);
   };
 

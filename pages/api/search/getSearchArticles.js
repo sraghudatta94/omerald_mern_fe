@@ -7,6 +7,7 @@ export default async function handler(req, res) {
         id: true,
         title: true,
         image: true,
+        slug: true,
         created_at: true,
         updated_by: true,
         short_description: true,
